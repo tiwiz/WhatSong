@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="it.tiwiz.whatsong">
+            package="it.tiwiz.whatsong"
+            android:versionCode="2"
+            android:versionName="0.0-Shazam-Eugy">
+
     <uses-sdk android:minSdkVersion="17"
               android:targetSdkVersion="18"/>
 

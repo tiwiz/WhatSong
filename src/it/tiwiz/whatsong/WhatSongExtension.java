@@ -22,6 +22,7 @@ public class WhatSongExtension extends DashClockExtension{
         //creates data for SoundProvider
         int index = getIndex(appTitle);
         String pkg = getPackage(index);
+        String shortTitle = getShortTitle(index);
         int icon = getIcon(index);
         String expandedBody = getResources().getString(R.string.expanded_body, appTitle);
         String contentDescription = getResources().getString(R.string.content_description,appTitle);
@@ -30,7 +31,7 @@ public class WhatSongExtension extends DashClockExtension{
         ExtensionData data = new ExtensionData()
             .visible(true)
             .icon(icon)
-            .status(appTitle)
+            .status(shortTitle)
             .expandedTitle(appTitle)
             .expandedBody(expandedBody)
             .contentDescription(contentDescription)
@@ -56,6 +57,10 @@ public class WhatSongExtension extends DashClockExtension{
 
     private String getPackage(int index){
         return getResources().getStringArray(R.array.softwares_packages)[index];
+    }
+
+    private String getShortTitle(int index){
+        return getResources().getStringArray(R.array.softwares_names_short)[index];
     }
 
     private int getIcon(int index){
