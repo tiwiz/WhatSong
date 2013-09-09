@@ -1,5 +1,6 @@
 package it.tiwiz.whatsong;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -17,7 +18,8 @@ public class WhatSongExtension extends DashClockExtension{
     protected void onUpdateData(int i) {
 
         //gets the sound provider
-        String appTitle = "Shazam Encore";
+        //String appTitle = "Shazam Encore";
+        String appTitle = "SoundHound";
 
         //creates data for SoundProvider
         int index = getIndex(appTitle);
@@ -100,8 +102,9 @@ public class WhatSongExtension extends DashClockExtension{
                 intent = getPackageManager().getLaunchIntentForPackage(pkg);
                 break;
             case 3: //SoundHound
-                break;
             case 4: //SoundHound Pro
+                ComponentName soundHoundComponent = new ComponentName(pkg,"com.soundhound.android.appcommon.activity.SoundHoundIdNow");
+                intent.setComponent(soundHoundComponent);
                 break;
             case 5: //TrackID
                 break;
