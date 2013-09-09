@@ -3,10 +3,15 @@ package it.tiwiz.whatsong;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
+import android.speech.RecognizerIntent;
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +24,8 @@ public class WhatSongExtension extends DashClockExtension{
 
         //gets the sound provider
         //String appTitle = "Shazam Encore";
-        String appTitle = "SoundHound";
+        //String appTitle = "SoundHound";
+        String appTitle = "Sound Search";
 
         //creates data for SoundProvider
         int index = getIndex(appTitle);
@@ -71,6 +77,7 @@ public class WhatSongExtension extends DashClockExtension{
 
         switch(index){
             case 0: //Sound Search
+                resId = R.drawable.google;
                 break;
             case 1: //Shazam
             case 2:
@@ -78,6 +85,7 @@ public class WhatSongExtension extends DashClockExtension{
                 break;
             case 3: //SoundHound
             case 4:
+                resId = R.drawable.soundhound;
                 break;
             case 5: //TrackID
                 break;
@@ -96,6 +104,8 @@ public class WhatSongExtension extends DashClockExtension{
 
         switch(index){
             case 0: //Sound Search
+                //intent.setClassName(pkg,C.GOOGLE_VOICE_SEARCH);
+                intent = new Intent(C.GOOGLE_MUSIC_SEARCH);
                 break;
             case 1: //Shazam
             case 2: //Shazam Encore
@@ -103,7 +113,7 @@ public class WhatSongExtension extends DashClockExtension{
                 break;
             case 3: //SoundHound
             case 4: //SoundHound Pro
-                ComponentName soundHoundComponent = new ComponentName(pkg,"com.soundhound.android.appcommon.activity.SoundHoundIdNow");
+                ComponentName soundHoundComponent = new ComponentName(pkg,C.SOUNDHOUND_TAG_NOW);
                 intent.setComponent(soundHoundComponent);
                 break;
             case 5: //TrackID

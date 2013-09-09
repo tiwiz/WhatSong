@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="softwares_names">
-        <item>Google Sound Search</item>
+        <item>Sound Search</item>
         <item>Shazam</item>
         <item>Shazam Encore</item>
         <item>SoundHound</item>
@@ -12,7 +12,7 @@
     </string-array>
 
     <string-array name="softwares_names_short">
-        <item>Google Sound Search</item>
+        <item>Sound Search</item>
         <item>Shazam</item>
         <item>Shazam</item>
         <item>SoundHound</item>
@@ -23,7 +23,7 @@
     </string-array>
 
     <string-array name="softwares_packages">
-        <item>com.google.android.ears</item>
+        <item>com.google.android.googlequicksearchbox</item>
         <item>com.shazam.android</item>
         <item>com.shazam.encore.android</item>
         <item>com.melodis.midomiMusicIdentifier.freemium</item>
