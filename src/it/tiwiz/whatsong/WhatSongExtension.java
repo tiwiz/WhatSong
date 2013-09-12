@@ -25,7 +25,8 @@ public class WhatSongExtension extends DashClockExtension{
         //gets the sound provider
         //String appTitle = "Shazam Encore";
         //String appTitle = "SoundHound";
-        String appTitle = "Sound Search";
+        //String appTitle = "Sound Search";
+        String appTitle = "TrackID";
 
         //creates data for SoundProvider
         int index = getIndex(appTitle);
@@ -88,10 +89,13 @@ public class WhatSongExtension extends DashClockExtension{
                 resId = R.drawable.soundhound;
                 break;
             case 5: //TrackID
+                resId = R.drawable.trackid;
                 break;
             case 6: //musiXmatch
+                resId = R.drawable.musixmatch;
                 break;
             case 7: //SoundTracking
+                resId = R.drawable.soundtracking;
                 break;
         }
 
@@ -117,10 +121,20 @@ public class WhatSongExtension extends DashClockExtension{
                 intent.setComponent(soundHoundComponent);
                 break;
             case 5: //TrackID
+                intent.setClassName(pkg,C.TRACKID_TAG_NOW);
+                intent.setAction("android.intent.action.MAIN");
+                intent.putExtra("AUTO_START",true);
+                intent.putExtra("widgetLaunch",true);
+                intent.addCategory("android.intent.category.LAUNCHER");
                 break;
             case 6: //musiXmatch
+                intent.setClassName(pkg,C.MUSIXMATCH_TAG_NOW);
+                intent.putExtra("AUTO_START",true);
+                intent.putExtra("com.musixmatch.android.lyrify.ui.fragment.autostart",true);
                 break;
             case 7: //SoundTracking
+                intent.setClassName(pkg,C.SOUNDTRACKING_TAG_NOW);
+                intent.putExtra("widgetLaunch",true);
                 break;
         }
 
