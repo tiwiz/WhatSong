@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Search Provider">
+        <ListPreference
+                android:key="prefProvider"
+                android:entries="@array/softwares_names"
+                android:summary="@string/pref_provider_summary"
+                android:entryValues="@array/softwares_names"
+                android:title="@string/pref_provider_title"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>

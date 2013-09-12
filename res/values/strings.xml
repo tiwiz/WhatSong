@@ -3,4 +3,8 @@
     <string name="app_name">WhatSong</string>
     <string name="expanded_body">Search the song using %s</string>
     <string name="content_description">This extension will launch %s app.</string>
+    <string name="pref_provider_summary">In case chosen provider is not installed, Google Now will be launched.</string>
+    <string name="pref_provider_title">Choose provider</string>
+    <string name="settings_title">Settings</string>
+    <string name="extension_description">Search for a song using different providers</string>
 </resources>

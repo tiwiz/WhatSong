@@ -22,15 +22,22 @@ public class WhatSongExtension extends DashClockExtension{
     @Override
     protected void onUpdateData(int i) {
 
+        String defaultProvider = (getResources().getStringArray(R.array.softwares_names)[0]);
         //gets the sound provider
-        //String appTitle = "Shazam Encore";
-        //String appTitle = "SoundHound";
-        //String appTitle = "Sound Search";
-        String appTitle = "TrackID";
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        String appTitle = sp.getString("prefProvider", defaultProvider);
 
         //creates data for SoundProvider
         int index = getIndex(appTitle);
         String pkg = getPackage(index);
+
+        //if app is not installed, default provider is choosen
+        if(!isAppInstalled(pkg)){
+            appTitle = defaultProvider;
+            index = getIndex(defaultProvider);
+            pkg = getPackage(index);
+        }
+
         String shortTitle = getShortTitle(index);
         int icon = getIcon(index);
         String expandedBody = getResources().getString(R.string.expanded_body, appTitle);
@@ -121,7 +128,7 @@ public class WhatSongExtension extends DashClockExtension{
                 intent.setComponent(soundHoundComponent);
                 break;
             case 5: //TrackID
-                intent.setClassName(pkg,C.TRACKID_TAG_NOW);
+                intent.setClassName(pkg, C.TRACKID_TAG_NOW);
                 intent.setAction("android.intent.action.MAIN");
                 intent.putExtra("AUTO_START",true);
                 intent.putExtra("widgetLaunch",true);
@@ -130,7 +137,7 @@ public class WhatSongExtension extends DashClockExtension{
             case 6: //musiXmatch
                 intent.setClassName(pkg,C.MUSIXMATCH_TAG_NOW);
                 intent.putExtra("AUTO_START",true);
-                intent.putExtra("com.musixmatch.android.lyrify.ui.fragment.autostart",true);
+                intent.putExtra("com.musixmatch.android.lyrify.ui.fragment.autostart", true);
                 break;
             case 7: //SoundTracking
                 intent.setClassName(pkg,C.SOUNDTRACKING_TAG_NOW);
@@ -139,5 +146,19 @@ public class WhatSongExtension extends DashClockExtension{
         }
 
         return intent;
+    }
+
+    private boolean isAppInstalled(String pkg){
+
+        boolean appInstalled = false;
+        PackageManager pm = getPackageManager();
+
+        try {
+            pm.getPackageInfo(pkg,PackageManager.GET_ACTIVITIES);
+            appInstalled = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            appInstalled = false;
+        }
+        return appInstalled;
     }
 }

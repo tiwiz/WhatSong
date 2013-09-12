@@ -24,7 +24,14 @@
             <meta-data android:name="protocolVersion" android:value="2" />
             <meta-data android:name="worldReadable" android:value="true" />
             <meta-data android:name="description"
-                       android:value="Search for a song using different providers" />
+                       android:value="@string/extension_description" />
+
+            <meta-data android:name="settingsActivity"
+                       android:value=".SettingsActivity" />
         </service>
+
+        <activity android:name=".SettingsActivity"
+                  android:label="@string/settings_title"
+                  android:exported="true" />
     </application>
 </manifest>
