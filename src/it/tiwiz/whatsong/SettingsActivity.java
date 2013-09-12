@@ -14,7 +14,7 @@ public class SettingsActivity extends PreferenceActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActionBar().setIcon(R.drawable.icon);
+        getActionBar().setIcon(R.drawable.ic_launcher);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         addPreferencesFromResource(R.xml.preferences);
     }

@@ -81,7 +81,7 @@ public class WhatSongExtension extends DashClockExtension{
 
     private int getIcon(int index){
 
-        int resId = R.drawable.icon;
+        int resId = R.drawable.ic_launcher;
 
         switch(index){
             case 0: //Sound Search
