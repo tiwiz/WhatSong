@@ -25,7 +25,11 @@ public class WhatSongExtension extends DashClockExtension{
         String defaultProvider = (getResources().getStringArray(R.array.softwares_names)[0]);
         //gets the sound provider
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        String appTitle = sp.getString("prefProvider", defaultProvider);
+        String appTitle = sp.getString(getString(R.string.pref_provider_key), defaultProvider);
+        //and the other options
+        boolean useAppSpecificIcon = sp.getBoolean(getString(R.string.pref_icon_key), true);
+        boolean showExtendedBody = sp.getBoolean(getString(R.string.pref_extended_body),true);
+        boolean useAppSpecificTitle = sp.getBoolean(getString(R.string.pref_app_name),true);
 
         //creates data for SoundProvider
         int index = getIndex(appTitle);
@@ -39,8 +43,25 @@ public class WhatSongExtension extends DashClockExtension{
         }
 
         String shortTitle = getShortTitle(index);
-        int icon = getIcon(index);
-        String expandedBody = getResources().getString(R.string.expanded_body, appTitle);
+        int icon;
+
+        //choses correct icon depending on user's choice
+        if(useAppSpecificIcon)
+            icon = getIcon(index);
+        else
+            icon = R.drawable.ic_launcher;
+
+        String expandedBody = "";
+
+        //overwrites app name is user wants so
+        if(!useAppSpecificTitle){
+            appTitle = getResources().getString(R.string.app_name);
+            shortTitle = appTitle;
+        }
+        //shows extended body only if users wants it to do it
+        if(showExtendedBody)
+            expandedBody = getResources().getString(R.string.expanded_body, appTitle);
+
         String contentDescription = getResources().getString(R.string.content_description,appTitle);
         Intent launchProvider = getIntent(index,pkg);
 

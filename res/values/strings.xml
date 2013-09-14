@@ -7,4 +7,19 @@
     <string name="pref_provider_title">Choose provider</string>
     <string name="settings_title">WhatSong Settings</string>
     <string name="extension_description">Search for a song using different providers</string>
+    <string name="pref_cat_search_provider">Search Provider</string>
+    <string name="pref_provider_key">prefProvider</string>
+    <string name="pref_icon_key">prefIcon</string>
+    <string name="pref_extended_body">prefExtendedBody</string>
+    <string name="pref_app_name">prefAppName</string>
+    <string name="pref_cat_appearance">Appearance</string>
+    <string name="pref_icon_title">Icon</string>
+    <string name="pref_icon_summary_on">Provider specific icon will be displayed</string>
+    <string name="pref_icon_summary_off">WhatSong icon will be displayed</string>
+    <string name="pref_name_title">Name</string>
+    <string name="pref_name_summary_on">Provider name will be displayed</string>
+    <string name="pref_name_summary_off">WhatSong name will overwrite provider</string>
+    <string name="pref_extended_body_title">Extended body</string>
+    <string name="pref_extended_body_summary_on">Show extended body in fullscreen mode</string>
+    <string name="pref_extended_body_summary_off">Extended body will be hidden</string>
 </resources>
