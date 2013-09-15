@@ -30,6 +30,7 @@ public class WhatSongExtension extends DashClockExtension{
         boolean useAppSpecificIcon = sp.getBoolean(getString(R.string.pref_icon_key), true);
         boolean showExtendedBody = sp.getBoolean(getString(R.string.pref_extended_body),true);
         boolean useAppSpecificTitle = sp.getBoolean(getString(R.string.pref_app_name),true);
+        boolean showShortTitle = sp.getBoolean(getString(R.string.pref_short_title),true);
 
         //creates data for SoundProvider
         int index = getIndex(appTitle);
@@ -61,6 +62,10 @@ public class WhatSongExtension extends DashClockExtension{
         //shows extended body only if users wants it to do it
         if(showExtendedBody)
             expandedBody = getResources().getString(R.string.expanded_body, appTitle);
+
+        //hides the short title if needed
+        if(!showShortTitle)
+            shortTitle = "";
 
         String contentDescription = getResources().getString(R.string.content_description,appTitle);
         Intent launchProvider = getIntent(index,pkg);
@@ -141,7 +146,8 @@ public class WhatSongExtension extends DashClockExtension{
                 break;
             case 1: //Shazam
             case 2: //Shazam Encore
-                intent = getPackageManager().getLaunchIntentForPackage(pkg);
+                //intent = getPackageManager().getLaunchIntentForPackage(pkg);
+                intent = new Intent(C.SHAZAM_INTENT);
                 break;
             case 3: //SoundHound
             case 4: //SoundHound Pro

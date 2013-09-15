@@ -13,5 +13,6 @@ public class C {
     public final static String TRACKID_TAG_NOW = "com.sonyericsson.trackid.activity.WidgetHandlerActivity";
     public final static String MUSIXMATCH_TAG_NOW = "com.designfuture.music.ui.phone.SearchLyricActivity";
     public final static String SOUNDTRACKING_TAG_NOW = "com.schematiclabs.soundtracking.activities.ListenActivity";
+    public final static String SHAZAM_INTENT = "com.shazam.android.intent.actions.START_TAGGING";
 
 }

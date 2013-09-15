@@ -25,5 +25,10 @@
                           android:summaryOn="@string/pref_extended_body_summary_on"
                           android:summaryOff="@string/pref_extended_body_summary_off"
                           android:defaultValue="true"/>
+        <SwitchPreference android:key="@string/pref_short_title"
+                          android:title="@string/pref_short_title_title"
+                          android:summaryOn="@string/pref_short_title_summary_on"
+                          android:summaryOff="@string/pref_short_title_summary_off"
+                          android:defaultValue="true"/>
     </PreferenceCategory>
 </PreferenceScreen>
