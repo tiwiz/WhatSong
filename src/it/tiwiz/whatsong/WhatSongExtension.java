@@ -32,23 +32,25 @@ public class WhatSongExtension extends DashClockExtension{
         boolean useAppSpecificTitle = sp.getBoolean(getString(R.string.pref_app_name),true);
         boolean showShortTitle = sp.getBoolean(getString(R.string.pref_short_title),true);
 
+        Manager manager = Manager.getInstance(this);
+
         //creates data for SoundProvider
-        int index = getIndex(appTitle);
-        String pkg = getPackage(index);
+        int index = manager.getIndex(appTitle);
+        String pkg = manager.getPackage(index);
 
         //if app is not installed, default provider is choosen
-        if(!isAppInstalled(pkg)){
+        if(!manager.isAppInstalled(pkg)){
             appTitle = defaultProvider;
-            index = getIndex(defaultProvider);
-            pkg = getPackage(index);
+            index = manager.getIndex(defaultProvider);
+            pkg = manager.getPackage(index);
         }
 
-        String shortTitle = getShortTitle(index);
+        String shortTitle = manager.getShortTitle(index);
         int icon;
 
         //choses correct icon depending on user's choice
         if(useAppSpecificIcon)
-            icon = getIcon(index);
+            icon = manager.getIcon(index);
         else
             icon = R.drawable.ic_launcher;
 
@@ -68,7 +70,7 @@ public class WhatSongExtension extends DashClockExtension{
             shortTitle = "";
 
         String contentDescription = getResources().getString(R.string.content_description,appTitle);
-        Intent launchProvider = getIntent(index,pkg);
+        Intent launchProvider = manager.getIntent(index, pkg);
 
         ExtensionData data = new ExtensionData()
             .visible(true)
@@ -137,47 +139,37 @@ public class WhatSongExtension extends DashClockExtension{
 
     private Intent getIntent(int index, String pkg){
 
-        Intent intent = new Intent();
+        ComplexIntent intent = new EmptyIntent();
 
         switch(index){
             case 0: //Sound Search
-                //intent.setClassName(pkg,C.GOOGLE_VOICE_SEARCH);
-                intent = new Intent(C.GOOGLE_MUSIC_SEARCH);
+                intent = new SoundSearch();
                 break;
             case 1: //Shazam
             case 2: //Shazam Encore
-                //intent = getPackageManager().getLaunchIntentForPackage(pkg);
-                intent = new Intent(C.SHAZAM_INTENT);
+                intent = new Shazam();
                 break;
             case 3: //SoundHound
             case 4: //SoundHound Pro
-                ComponentName soundHoundComponent = new ComponentName(pkg,C.SOUNDHOUND_TAG_NOW);
-                intent.setComponent(soundHoundComponent);
+                intent = new SoundHound(pkg);
                 break;
             case 5: //TrackID
-                intent.setClassName(pkg, C.TRACKID_TAG_NOW);
-                intent.setAction("android.intent.action.MAIN");
-                intent.putExtra("AUTO_START",true);
-                intent.putExtra("widgetLaunch",true);
-                intent.addCategory("android.intent.category.LAUNCHER");
+                intent = new TrackID(pkg);
                 break;
             case 6: //musiXmatch
-                intent.setClassName(pkg,C.MUSIXMATCH_TAG_NOW);
-                intent.putExtra("AUTO_START",true);
-                intent.putExtra("com.musixmatch.android.lyrify.ui.fragment.autostart", true);
+                intent = new MusiXmatch(pkg);
                 break;
             case 7: //SoundTracking
-                intent.setClassName(pkg,C.SOUNDTRACKING_TAG_NOW);
-                intent.putExtra("widgetLaunch",true);
+                intent = new SoundTracking(pkg);
                 break;
         }
 
-        return intent;
+        return intent.getInstance();
     }
 
     private boolean isAppInstalled(String pkg){
 
-        boolean appInstalled = false;
+        boolean appInstalled;
         PackageManager pm = getPackageManager();
 
         try {
