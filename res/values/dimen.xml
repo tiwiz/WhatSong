@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_margin_top">10dp</dimen>
+    <dimen name="card_margin_bottom">10dp</dimen>
+    <dimen name="card_margin_left">10dp</dimen>
+    <dimen name="card_margin_right">10dp</dimen>
+    <dimen name="card_padding_top">10dp</dimen>
+    <dimen name="card_padding_bottom">10dp</dimen>
+    <dimen name="card_padding_left">5dp</dimen>
+    <dimen name="card_padding_right">5dp</dimen>
+    <dimen name="image_max_side">100dp</dimen>
+</resources>

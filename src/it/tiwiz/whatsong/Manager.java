@@ -79,6 +79,36 @@ public class Manager {
         return resId;
     }
 
+    public int getBigIcon(int index){
+
+        int resId = R.drawable.ic_launcher_vectorized;
+
+        switch(index){
+            case 0: //Sound Search
+                resId = R.drawable.google_vectorized;
+                break;
+            case 1: //Shazam
+            case 2:
+                resId = R.drawable.shazam_vectorized;
+                break;
+            case 3: //SoundHound
+            case 4:
+                resId = R.drawable.soundhound_vectorized;
+                break;
+            case 5: //TrackID
+                resId = R.drawable.trackid_vectorized;
+                break;
+            case 6: //musiXmatch
+                resId = R.drawable.musixmatch_vectorized;
+                break;
+            case 7: //SoundTracking
+                resId = R.drawable.soundtracking_vectorized;
+                break;
+        }
+
+        return resId;
+    }
+
     public Intent getIntent(int index, String pkg){
 
         ComplexIntent intent = new EmptyIntent();
@@ -121,5 +151,15 @@ public class Manager {
             appInstalled = false;
         }
         return appInstalled;
+    }
+
+    public int getRealPosition(String pkg){
+
+        String[] packages = mContext.getResources().getStringArray(R.array.softwares_packages);
+        int i;
+
+        for(i = 0; (i < packages.length) && (!pkg.equals(packages[i])); i++);
+
+        return i;
     }
 }

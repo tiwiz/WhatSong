@@ -26,4 +26,7 @@
     <string name="pref_short_title_title">Short Title</string>
     <string name="pref_short_title_summary_on">Shows app name in compat layout</string>
     <string name="pref_short_title_summary_off">Hides app name in compat layout</string>
+    <string name="card_shortcut_message_title">Specify a name for this shortcut</string>
+    <string name="card_shortcut_icon_title">Choose icon for this shortcut</string>
+    <string name="switch_text_on">Provider</string>
 </resources>
