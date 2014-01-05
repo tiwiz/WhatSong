@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
 
 /**
@@ -22,6 +24,7 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
     private String[] installedProvidersPackages = null;
     private String[] installedProvidersNames = null;
     private int position = 0;
+    private int currentIcon = 0;
     private Context mContext = null;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -118,7 +121,7 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
 
     private void changeBigIcon(boolean provider){
 
-        int icon;
+        final int icon;
 
         if(provider){
             final String packageName = installedProvidersPackages[position];
@@ -128,7 +131,39 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
         }else
             icon = R.drawable.ic_launcher_vectorized;
 
-        imgLogo.setImageResource(icon);
+        if(currentIcon != icon){
+            //creates animation
+            final Animation animation_out = AnimationUtils.loadAnimation(mContext,R.anim.shrink);
+            final Animation animation_in = AnimationUtils.loadAnimation(mContext,R.anim.enlarge);
+
+            animation_out.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {}
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+
+                    animation_in.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                            imgLogo.setImageResource(icon);
+                            currentIcon = icon;
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {}
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {}
+                    });
+                    imgLogo.startAnimation(animation_in);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {}
+            });
+            imgLogo.startAnimation(animation_out);
+        }
     }
 
     private class SpinnerFiller implements SearchInstalledProviders.Callback{

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="pref_provider_key">prefProvider</string>
+    <string name="pref_icon_key">prefIcon</string>
+    <string name="pref_extended_body">prefExtendedBody</string>
+    <string name="pref_app_name">prefAppName</string>
+    <string name="pref_short_title">prefShortTitle</string>
+
     <string name="app_name">WhatSong</string>
     <string name="expanded_body">Search the song using %s</string>
     <string name="content_description">This extension will launch %s app.</string>
@@ -8,10 +15,6 @@
     <string name="settings_title">WhatSong Settings</string>
     <string name="extension_description">Search for a song using different providers</string>
     <string name="pref_cat_search_provider">Search Provider</string>
-    <string name="pref_provider_key">prefProvider</string>
-    <string name="pref_icon_key">prefIcon</string>
-    <string name="pref_extended_body">prefExtendedBody</string>
-    <string name="pref_app_name">prefAppName</string>
     <string name="pref_cat_appearance">Appearance</string>
     <string name="pref_icon_title">Icon</string>
     <string name="pref_icon_summary_on">Provider specific icon will be displayed</string>
@@ -22,11 +25,12 @@
     <string name="pref_extended_body_title">Extended body</string>
     <string name="pref_extended_body_summary_on">Show extended body in fullscreen mode</string>
     <string name="pref_extended_body_summary_off">Extended body will be hidden</string>
-    <string name="pref_short_title">prefShortTitle</string>
     <string name="pref_short_title_title">Short Title</string>
     <string name="pref_short_title_summary_on">Shows app name in compat layout</string>
     <string name="pref_short_title_summary_off">Hides app name in compat layout</string>
     <string name="card_shortcut_message_title">Specify a name for this shortcut</string>
     <string name="card_shortcut_icon_title">Choose icon for this shortcut</string>
     <string name="switch_text_on">Provider</string>
+    <string name="actionbar_create_title">Create shortcut</string>
+    <string name="actionbar_create_title_condensed">Accept</string>
 </resources>
