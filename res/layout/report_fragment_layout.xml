@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="@android:color/transparent">
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutChooseSoftware" android:layout_marginLeft="@dimen/card_margin_left"
+            android:layout_marginTop="@dimen/card_margin_top" android:layout_marginRight="@dimen/card_margin_right"
+            android:layout_marginBottom="@dimen/card_padding_bottom" android:paddingLeft="@dimen/card_padding_left"
+            android:paddingTop="@dimen/card_padding_top" android:paddingRight="@dimen/card_padding_right"
+            android:paddingBottom="@dimen/card_padding_bottom" android:background="@drawable/card_background">
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/report_software_label_title"
+                android:id="@+id/textView" android:layout_gravity="center_horizontal"
+                android:gravity="center" android:background="@android:color/transparent"/>
+        <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerReportSoftware" android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:layout_below="@+id/layoutChooseSoftware"
+            android:id="@+id/layoutInsertUrl" android:layout_marginLeft="@dimen/card_margin_left"
+            android:layout_marginRight="@dimen/card_margin_right" android:layout_marginTop="@dimen/card_margin_top"
+            android:layout_marginBottom="@dimen/card_margin_bottom" android:paddingLeft="@dimen/card_padding_left"
+            android:paddingTop="@dimen/card_padding_top" android:paddingRight="@dimen/card_padding_right"
+            android:paddingBottom="@dimen/card_padding_bottom" android:background="@drawable/card_background"
+            android:visibility="gone">
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/report_software_label_playstore_url"
+                android:id="@+id/textView2" android:gravity="center" android:background="@android:color/transparent"/>
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editReportInsertURL" android:inputType="textUri"
+                android:hint="@string/play_store_whatsong_address"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/layoutInsertUrl"
+            android:id="@+id/layoutInsertComment" android:layout_marginLeft="@dimen/card_margin_left"
+            android:layout_marginTop="@dimen/card_margin_top" android:layout_marginRight="@dimen/card_margin_right"
+            android:layout_marginBottom="@dimen/card_margin_bottom" android:paddingLeft="@dimen/card_padding_left"
+            android:paddingTop="@dimen/card_padding_top" android:paddingRight="@dimen/card_padding_right"
+            android:paddingBottom="@dimen/card_padding_bottom" android:background="@drawable/card_background">
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/report_software_comment_title"
+                android:id="@+id/textView3" android:layout_gravity="center_horizontal" android:gravity="center"/>
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editReportComment"/>
+    </LinearLayout>
+</RelativeLayout>

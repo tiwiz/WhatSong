@@ -7,6 +7,10 @@
     <string name="pref_app_name">prefAppName</string>
     <string name="pref_short_title">prefShortTitle</string>
 
+    <string name="play_store_address_header">play.google.com/store/apps/details?id=</string>
+    <string name="play_store_whatsong_address">https://play.google.com/store/apps/details?id=it.tiwiz.whatsong</string>
+    <string name="report_object">WhatSong Report</string>
+
     <string name="app_name">WhatSong</string>
     <string name="expanded_body">Search the song using %s</string>
     <string name="content_description">This extension will launch %s app.</string>
@@ -33,4 +37,15 @@
     <string name="switch_text_on">Provider</string>
     <string name="actionbar_create_title">Create shortcut</string>
     <string name="actionbar_create_title_condensed">Accept</string>
+    <string name="report_software_label_title">Select software with issues</string>
+    <string name="report_software_label_playstore_url">Insert Play Store URL of the target package</string>
+    <string name="report_software_comment_title">Feel free to insert a comment /storeabout your issue</string>
+    <string name="report_other_software_element">Other…</string>
+    <string name="whatsong_report_activity_label">WhatSong Report</string>
+    <string name="actionbar_report_send_titleCondensed">Send</string>
+    <string name="actionbar_report_send_title">Send report</string>
+    <string name="send_report_empty_string_error">Empty string</string>
+    <string name="send_report_bad_address_error">Bad address</string>
+    <string name="report_sending_message">Sending report...</string>
+    <string name="report_sending_message_success">Report sent successfully!</string>
 </resources>

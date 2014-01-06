@@ -73,8 +73,8 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
         this.position = position;
-        editTextShortcutName.setText(installedProvidersNames[position]);
 
+        editTextShortcutName.setText(installedProvidersNames[position]);
         changeBigIcon(switchIcon.isChecked());
     }
 
@@ -133,8 +133,8 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
 
         if(currentIcon != icon){
             //creates animation
-            final Animation animation_out = AnimationUtils.loadAnimation(mContext,R.anim.shrink);
-            final Animation animation_in = AnimationUtils.loadAnimation(mContext,R.anim.enlarge);
+            final Animation animation_out = AnimationUtils.loadAnimation(mContext,R.anim.flip_side_out);
+            final Animation animation_in = AnimationUtils.loadAnimation(mContext,R.anim.flip_side_in);
 
             animation_out.setAnimationListener(new Animation.AnimationListener() {
                 @Override
@@ -157,6 +157,7 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
                         public void onAnimationRepeat(Animation animation) {}
                     });
                     imgLogo.startAnimation(animation_in);
+
                 }
 
                 @Override

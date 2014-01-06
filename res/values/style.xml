@@ -13,6 +13,7 @@
         <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
         <item name="android:editTextBackground">@drawable/whatsong_custom_theme_edit_text_holo_light</item>
         <item name="android:editTextColor">@color/holo_blue</item>
+        <item name="android:textColor">@color/google_now_element_text_color</item>
     </style>
 
     <style name="MyActionBar" parent="@android:style/Widget.Holo.ActionBar">
