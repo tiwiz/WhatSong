@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_cat_search_provider">
+        <ListPreference
+                android:key="@string/pref_provider_key"
+                android:entries="@array/softwares_names"
+                android:summary="@string/pref_provider_summary"
+                android:entryValues="@array/softwares_names"
+                android:title="@string/pref_provider_title"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_cat_appearance">
+        <SwitchPreference android:key="@string/pref_icon_key"
+                          android:title="@string/pref_icon_title"
+                          android:summaryOn="@string/pref_icon_summary_on"
+                          android:summaryOff="@string/pref_icon_summary_off"
+                          android:defaultValue="true"/>
+        <SwitchPreference android:key="@string/pref_app_name"
+                          android:title="@string/pref_name_title"
+                          android:summaryOn="@string/pref_name_summary_on"
+                          android:summaryOff="@string/pref_name_summary_off"
+                          android:defaultValue="true"/>
+        <SwitchPreference android:key="@string/pref_extended_body"
+                          android:title="@string/pref_extended_body_title"
+                          android:summaryOn="@string/pref_extended_body_summary_on"
+                          android:summaryOff="@string/pref_extended_body_summary_off"
+                          android:defaultValue="true"/>
+        <SwitchPreference android:key="@string/pref_short_title"
+                          android:title="@string/pref_short_title_title"
+                          android:summaryOn="@string/pref_short_title_summary_on"
+                          android:summaryOff="@string/pref_short_title_summary_off"
+                          android:defaultValue="true"/>
+    </PreferenceCategory>
+</PreferenceScreen>

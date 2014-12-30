@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="shortcut_toolbar_image_max_side">100dp</dimen>
+    <dimen name="shortcut_toolbar_image_margin_top">48dp</dimen>
+    <dimen name="shortcut_toolbar_image_margin_bottom">48dp</dimen>
+    <dimen name="shortcut_toolbar_image_container_padding">24dp</dimen>
+    <dimen name="shortcut_subhead_side_padding">24dp</dimen>
+    <dimen name="shortcut_subhead_top_margin">12dp</dimen>
+    <dimen name="shortcut_tile_height">48dp</dimen>
+    <dimen name="shortcut_element_small_space">16dp</dimen>
+    <dimen name="shortcut_element_medium_space">20dp</dimen>
+    <dimen name="fab_diameter">56dp</dimen>
+    <dimen name="fab_elevation_low">4dp</dimen>
+    <dimen name="fab_elevation_high">8dp</dimen>
+    <dimen name="fab_button_side_margin">16dp</dimen>
+    <dimen name="fab_button_top_margin">168dp</dimen>
+</resources>

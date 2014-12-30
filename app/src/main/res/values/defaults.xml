@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="useAppSpecificIcon">true</bool>
+    <bool name="showExtendedBody">true</bool>
+    <bool name="useAppSpecificName">true</bool>
+    <bool name="useAppShortName">true</bool>
+    <integer name="defaultMusicRecognitionProviderIndex">0</integer>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToolbarImageView" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">@dimen/shortcut_toolbar_image_max_side</item>
+        <item name="android:layout_height">@dimen/shortcut_toolbar_image_max_side</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/shortcut_toolbar_image_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/shortcut_toolbar_image_margin_top</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="ShortcutSubheadElement" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/shortcut_tile_height</item>
+        <item name="android:layout_marginTop">@dimen/shortcut_subhead_top_margin</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingRight">@dimen/shortcut_subhead_side_padding</item>
+        <item name="android:paddingLeft">@dimen/shortcut_subhead_side_padding</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ShortcutEditText" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">@dimen/shortcut_tile_height</item>
+        <item name="android:layout_marginRight">@dimen/shortcut_element_medium_space</item>
+        <item name="android:layout_marginLeft">@dimen/shortcut_element_medium_space</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:backgroundTint">@color/accent</item>
+    </style>
+
+    <style name="ShortcutSpinner" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">@dimen/shortcut_tile_height</item>
+        <item name="android:layout_marginLeft">@dimen/shortcut_element_small_space</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <style name="ShortcutSwitch" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">@dimen/shortcut_tile_height</item>
+        <item name="android:paddingRight">@dimen/shortcut_element_medium_space</item>
+        <item name="android:paddingLeft">@dimen/shortcut_subhead_side_padding</item>
+        <item name="android:checked">true</item>
+    </style>
+
+    <style name="ShortcutFab" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="android:layout_width">@dimen/fab_diameter</item>
+        <item name="android:layout_height">@dimen/fab_diameter</item>
+        <item name="android:layout_gravity">right</item>
+        <!--<item name="android:layout_marginTop">@dimen/fab_button_top_margin</item>-->
+        <item name="android:layout_marginRight">@dimen/fab_button_side_margin</item>
+        <item name="android:src">@drawable/ic_accept</item>
+        <item name="android:tint">@color/icons</item>
+        <item name="android:background">@drawable/fab_background</item>
+        <item name="android:elevation">@dimen/fab_elevation_low</item>
+        <item name="android:stateListAnimator">@anim/button_elevation</item>
+    </style>
+</resources>

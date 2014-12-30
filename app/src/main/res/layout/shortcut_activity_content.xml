@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:minHeight="?attr/actionBarSize"
+            app:theme="@style/ToolbarTheme">
+
+            <it.tiwiz.whatsong.views.AnimatedImageView
+                android:id="@+id/imgLogo"
+                android:src="@drawable/ic_launcher_vectorized"
+                style="@style/ToolbarImageView" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:background="@android:color/transparent"
+            android:layout_weight="99">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ShortcutSubheadElement"
+                    android:text="@string/pref_provider_title" />
+
+                <Spinner
+                    style="@style/ShortcutSpinner"
+                    android:id="@+id/spinnerInstalledProviders" />
+
+                <include layout="@layout/shortcut_commands" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</merge>
