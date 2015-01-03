@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.tiwiz.whatsong"
-    android:versionCode="11"
-    android:versionName="0.3.5-alpha" >
+    android:versionCode="12"
+    android:versionName="0.3.6-alpha" >
 
     <application
         android:name=".WhatSongApp"
