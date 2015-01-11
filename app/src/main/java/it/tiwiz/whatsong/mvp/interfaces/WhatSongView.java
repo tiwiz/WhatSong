@@ -1,6 +1,7 @@
 package it.tiwiz.whatsong.mvp.interfaces;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.widget.BaseAdapter;
 
@@ -37,4 +38,10 @@ public interface WhatSongView {
      * @param shortcutIntent to use as result
      */
     public void onShortcutIntentCreated (Intent shortcutIntent);
+
+    /**
+     * This method is used for mocking purposes primarily.
+     * In case of {@link android.app.Activity} it will just return itself;
+     */
+    public Context getViewContext();
 }

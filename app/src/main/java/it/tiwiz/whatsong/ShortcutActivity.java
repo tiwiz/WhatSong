@@ -191,6 +191,11 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
     }
 
     @Override
+    public Context getViewContext() {
+        return this;
+    }
+
+    @Override
     public void onClick(View v) {
         whatSongPresenter.onShortcutRequest(editTextShortcutName.getText().toString(),
                 switchIcon.isChecked());

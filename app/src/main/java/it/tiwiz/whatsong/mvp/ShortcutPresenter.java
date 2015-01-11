@@ -109,7 +109,7 @@ public class ShortcutPresenter implements WhatSongPresenter {
     public void onPackagesRetrieved(PackageData[] packageData) {
 
         whatSongModel.setInstalledPackages(packageData);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>((Context) whatSongView, android.R.layout.simple_spinner_item, whatSongModel.getPackagesNames());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(whatSongView.getViewContext(), android.R.layout.simple_spinner_item, whatSongModel.getPackagesNames());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         whatSongView.onUpdateListAdapter(adapter);
         whatSongView.onUpdateShortcutName(whatSongModel.getPackageName(0));

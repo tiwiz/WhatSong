@@ -7,7 +7,7 @@ import it.tiwiz.whatsong.mvp.interfaces.WhatSongModel;
 import it.tiwiz.whatsong.utils.PackageDataMockedApps;
 
 
-public class WhatsongModelTest extends TestCase {
+public class WhatSongModelTest extends TestCase {
 
     private WhatSongModel testedModel;
 
