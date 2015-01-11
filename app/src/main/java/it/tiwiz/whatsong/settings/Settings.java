@@ -155,7 +155,7 @@ public class Settings {
      * This method is a simple wrapper of the {@link android.content.res.Resources#getString(int, Object...)} method
      */
     public static String getString(int resourceId, String... data) {
-        return WhatSongApp.getInstance().getString(resourceId, data);
+        return WhatSongApp.getInstance().getString(resourceId, (Object[]) data);
     }
 
 }
