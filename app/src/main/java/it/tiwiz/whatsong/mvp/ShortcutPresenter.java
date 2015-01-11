@@ -48,11 +48,11 @@ public class ShortcutPresenter implements WhatSongPresenter {
      * and modify the label before creating the shortcut
      */
     @Override
-    public void onItemSelected(int position, boolean isSelected) {
+    public void onProviderSelected(int position, boolean isSelected) {
         lastSelectedPosition = position;
         String newLabelForShortcut = whatSongModel.getPackageName(lastSelectedPosition);
         whatSongView.onUpdateShortcutName(newLabelForShortcut);
-        onSwitchSelected(isSelected);
+        onProviderIconChanged(isSelected);
     }
 
     /**
@@ -61,7 +61,7 @@ public class ShortcutPresenter implements WhatSongPresenter {
      * as per guidelines
      */
     @Override
-    public void onSwitchSelected(boolean isSelected) {
+    public void onProviderIconChanged(boolean isSelected) {
         int newIcon;
         if (isSelected) {
             newIcon = getIconResourceForLastSelectedItem();
@@ -88,8 +88,8 @@ public class ShortcutPresenter implements WhatSongPresenter {
      * as per guidelines.
      */
     @Override
-    public void onFabClick(String selectedPackageLabel,
-                           boolean isSpecificIconSelected) {
+    public void onShortcutRequest(String selectedPackageLabel,
+                                  boolean isSpecificIconSelected) {
 
         Intent shortcutIntent = ShortcutUtils.createShortcutIntent((Context) whatSongView, whatSongModel.getPackages(),
                 lastSelectedPosition, selectedPackageLabel, isSpecificIconSelected);

@@ -132,7 +132,7 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
      */
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-        whatSongPresenter.onItemSelected(position, switchIcon.isChecked());
+        whatSongPresenter.onProviderSelected(position, switchIcon.isChecked());
     }
 
     @Override
@@ -141,7 +141,7 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-        whatSongPresenter.onSwitchSelected(b);
+        whatSongPresenter.onProviderIconChanged(b);
     }
 
     /**
@@ -192,7 +192,7 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
 
     @Override
     public void onClick(View v) {
-        whatSongPresenter.onFabClick(editTextShortcutName.getText().toString(),
+        whatSongPresenter.onShortcutRequest(editTextShortcutName.getText().toString(),
                 switchIcon.isChecked());
     }
 

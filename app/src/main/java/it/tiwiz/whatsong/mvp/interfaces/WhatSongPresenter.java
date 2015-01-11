@@ -22,7 +22,7 @@ public interface WhatSongPresenter {
      * @param isSelected the value taken from the current value of the
      *                   {@link android.support.v7.widget.SwitchCompat#isChecked()} method
      */
-    public void onItemSelected(int position, boolean isSelected);
+    public void onProviderSelected(int position, boolean isSelected);
 
     /**
      * This method is called every time the {@link android.support.v7.widget.SwitchCompat} changes
@@ -30,7 +30,7 @@ public interface WhatSongPresenter {
      * @param isSelected the value taken from the current value of the
      *                   {@link android.support.v7.widget.SwitchCompat#isChecked()} method
      */
-    public void onSwitchSelected(boolean isSelected);
+    public void onProviderIconChanged(boolean isSelected);
 
     /**
      * This method is called every time the {@code Floating Action Button} is clicked and will take
@@ -41,7 +41,7 @@ public interface WhatSongPresenter {
      *                               {@link android.support.v7.widget.SwitchCompat#isChecked()}
      *                               method
      */
-    public void onFabClick(String selectedPackageLabel, boolean isSpecificIconSelected);
+    public void onShortcutRequest(String selectedPackageLabel, boolean isSpecificIconSelected);
 
     /**
      * This method is called when the packages have been retrieved and will then initialize the
