@@ -16,4 +16,8 @@ public class WhatSongApp extends Application{
         super.onCreate();
         instance = this;
     }
+
+    public static String[] getStringArrayBy (int id) {
+        return getInstance().getResources().getStringArray(id);
+    }
 }

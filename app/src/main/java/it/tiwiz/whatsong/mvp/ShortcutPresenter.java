@@ -91,7 +91,7 @@ public class ShortcutPresenter implements WhatSongPresenter {
     public void onShortcutRequest(String selectedPackageLabel,
                                   boolean isSpecificIconSelected) {
 
-        Intent shortcutIntent = ShortcutUtils.createShortcutIntent((Context) whatSongView, whatSongModel.getPackages(),
+        Intent shortcutIntent = ShortcutUtils.createShortcutIntent(whatSongView.getViewContext(), whatSongModel.getPackages(),
                 lastSelectedPosition, selectedPackageLabel, isSpecificIconSelected);
         whatSongView.onShortcutIntentCreated(shortcutIntent);
     }

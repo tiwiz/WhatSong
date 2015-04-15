@@ -47,7 +47,7 @@ public class AnimatedImageView extends ImageView{
      */
     private void initImageView() {
         animationOut = AnimationUtils.loadAnimation(getContext(), R.anim.flip_side_out);
-        animationIn = AnimationUtils.loadAnimation(getContext(),R.anim.flip_side_in);
+        animationIn = AnimationUtils.loadAnimation(getContext(), R.anim.flip_side_in);
 
         animationOutListener = new ImageOutAnimationListener();
         animationInListener = new ImageInAnimationListener();

@@ -31,8 +31,8 @@ public class SearchInstalledProvidersService extends IntentService {
     private PackageManager packageManager;
 
     {
-        allProvidersPackages = getResources().getStringArray(R.array.softwares_packages);
-        allProvidersNames = getResources().getStringArray(R.array.softwares_names);
+        allProvidersPackages = WhatSongApp.getStringArrayBy(R.array.softwares_packages);
+        allProvidersNames = WhatSongApp.getStringArrayBy(R.array.softwares_names);
     }
 
     public SearchInstalledProvidersService() {
