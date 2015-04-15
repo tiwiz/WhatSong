@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/contentParent">
+    android:id="@+id/contentParent"
+    android:background="@drawable/main_background">
 
     <include layout="@layout/shortcut_activity_content"/>
 

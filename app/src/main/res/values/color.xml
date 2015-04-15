@@ -11,5 +11,8 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
 
+    <color name="background_gradient_starting">#438589</color>
+    <color name="background_gradient_ending">#455f88</color>
+
     <color name="accent_pressed">#e0e0e0</color>
 </resources>
