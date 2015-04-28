@@ -22,7 +22,7 @@ public interface WhatSongPresenter {
      * @param isSelected the value taken from the current value of the
      *                   {@link android.support.v7.widget.SwitchCompat#isChecked()} method
      */
-    public void onProviderSelected(int position, boolean isSelected);
+    void onProviderSelected(int position, boolean isSelected);
 
     /**
      * This method is called every time the {@link android.support.v7.widget.SwitchCompat} changes
@@ -30,7 +30,7 @@ public interface WhatSongPresenter {
      * @param isSelected the value taken from the current value of the
      *                   {@link android.support.v7.widget.SwitchCompat#isChecked()} method
      */
-    public void onProviderIconChanged(boolean isSelected);
+    void onProviderIconChanged(boolean isSelected);
 
     /**
      * This method is called every time the {@code Floating Action Button} is clicked and will take
@@ -41,7 +41,7 @@ public interface WhatSongPresenter {
      *                               {@link android.support.v7.widget.SwitchCompat#isChecked()}
      *                               method
      */
-    public void onShortcutRequest(String selectedPackageLabel, boolean isSpecificIconSelected);
+    void onShortcutRequest(String selectedPackageLabel, boolean isSpecificIconSelected);
 
     /**
      * This method is called when the packages have been retrieved and will then initialize the
@@ -53,5 +53,5 @@ public interface WhatSongPresenter {
      * @see {@link it.tiwiz.whatsong.utils.IntentUtils.Filters#getSendInstalledProdiverResponseFilter()}
      * how to handle the response
      */
-    public void onPackagesRetrieved(PackageData[] packageData);
+    void onPackagesRetrieved(PackageData[] packageData);
 }

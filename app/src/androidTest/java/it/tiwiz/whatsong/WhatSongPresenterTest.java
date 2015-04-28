@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 
 import it.tiwiz.whatsong.mvp.ShortcutPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter;
+import it.tiwiz.whatsong.utils.MockedModel;
 import it.tiwiz.whatsong.utils.MockedView;
 import it.tiwiz.whatsong.utils.PackageDataMockedApps;
 
@@ -53,6 +54,7 @@ public class WhatSongPresenterTest extends TestCase{
     }
 
     public void testOnShortcutRequested() throws Exception {
+        realPresenter = new ShortcutPresenter(mockedView, new MockedModel());
         realPresenter.onShortcutRequest(PackageDataMockedApps.TEST_APPS_PACKAGES[0], true);
         assertEquals(mockedView.hasOnShortcutIntentCreatedBeenCalled(), true);
 

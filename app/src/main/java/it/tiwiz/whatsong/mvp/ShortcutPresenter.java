@@ -1,6 +1,5 @@
 package it.tiwiz.whatsong.mvp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
 
@@ -19,10 +18,10 @@ import it.tiwiz.whatsong.utils.ShortcutUtils;
  * <br/><br/>
  * <b>Expected behaviour</b>
  * <ul>
- *     <li>when a new item is selected as per {@link android.widget.AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView, android.view.View, int, long)}
- *     the icon must be changed and the label must be updated</li>
- *     <li>when the {@link android.support.v7.widget.SwitchCompat} changes its status, the big icon
- *     must be changed</li>
+ * <li>when a new item is selected as per {@link android.widget.AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView, android.view.View, int, long)}
+ * the icon must be changed and the label must be updated</li>
+ * <li>when the {@link android.support.v7.widget.SwitchCompat} changes its status, the big icon
+ * must be changed</li>
  * </ul>
  */
 public class ShortcutPresenter implements WhatSongPresenter {
@@ -36,9 +35,19 @@ public class ShortcutPresenter implements WhatSongPresenter {
      * position and the {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView} connected to
      * the <b>presenter</b> itself.
      */
-    public ShortcutPresenter (WhatSongView whatSongView) {
+    public ShortcutPresenter(WhatSongView whatSongView) {
+        this(whatSongView, new ShortcutModel());
+    }
+
+    /**
+     * This constructor initializes a new model and starts keeping track of the last selected
+     * position and the {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView} connected to
+     * the <b>presenter</b> itself, with the possibility of setting a different
+     * {@link WhatSongModel}
+     */
+    public ShortcutPresenter(WhatSongView whatSongView, WhatSongModel whatSongModel) {
         this.whatSongView = whatSongView;
-        whatSongModel = new ShortcutModel();
+        this.whatSongModel = whatSongModel;
         lastSelectedPosition = 0;
     }
 
@@ -100,8 +109,8 @@ public class ShortcutPresenter implements WhatSongPresenter {
      * When the installed packages are retrieved, this method is invoked and will create the
      * {@link android.widget.ArrayAdapter} for the {@link android.widget.Spinner}, will trigger
      * both events <ul>
-     *     <li>{@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView#onUpdateListAdapter(android.widget.BaseAdapter)}</li>
-     *     <li>{@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView#onUpdateShortcutName(String)}</li>
+     * <li>{@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView#onUpdateListAdapter(android.widget.BaseAdapter)}</li>
+     * <li>{@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView#onUpdateShortcutName(String)}</li>
      * </ul>
      * as per guidelines.
      */
