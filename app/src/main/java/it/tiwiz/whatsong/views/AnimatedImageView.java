@@ -32,7 +32,8 @@ public class AnimatedImageView extends ImageView{
     }
 
     public AnimatedImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
+        initImageView();
     }
 
     public AnimatedImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
