@@ -11,20 +11,10 @@
         android:orientation="vertical"
         android:weightSum="100">
 
-        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5"
-            android:minHeight="?attr/actionBarSize"
-            app:theme="@style/ToolbarTheme">
-
-            <it.tiwiz.whatsong.views.AnimatedImageView
-                android:id="@+id/imgLogo"
-                android:src="@drawable/ic_launcher_vectorized"
-                style="@style/ToolbarImageView" />
-
-        </android.support.v7.widget.Toolbar>
+        <it.tiwiz.whatsong.views.AnimatedImageView
+            android:id="@+id/imgLogo"
+            android:src="@drawable/whatsong_logo"
+            style="@style/ToolbarImageView" />
 
         <ScrollView
             android:layout_width="match_parent"

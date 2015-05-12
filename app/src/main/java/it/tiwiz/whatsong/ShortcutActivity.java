@@ -40,7 +40,7 @@ import it.tiwiz.whatsong.views.AnimatedImageView;
  * @see it.tiwiz.whatsong.mvp.ShortcutModel Model implementation
  */
 public class ShortcutActivity extends Activity implements AdapterView.OnItemSelectedListener,
-        CompoundButton.OnCheckedChangeListener, View.OnClickListener, ViewTreeObserver.OnGlobalLayoutListener, WhatSongView {
+        CompoundButton.OnCheckedChangeListener, View.OnClickListener, WhatSongView {
 
     private EditText editTextShortcutName;
     private Spinner spinnerInstalledProviders;
@@ -69,18 +69,8 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
      * {@link #onCreate(android.os.Bundle)} of the Activity
      */
     private void initActivity() {
-        initVTO();
         findViews();
         setViewListeners();
-    }
-
-    /**
-     * Initialization of the {@link android.view.ViewTreeObserver} for positioning correctly the
-     * {@code Floating Action Button}
-     */
-    private void initVTO() {
-        View content = findViewById(R.id.contentParent);
-        content.getViewTreeObserver().addOnGlobalLayoutListener(this);
     }
 
     /**
@@ -142,27 +132,6 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         whatSongPresenter.onProviderIconChanged(b);
-    }
-
-    /**
-     * @see #calculateFabVerticalPosition()
-     */
-    @Override
-    public void onGlobalLayout() {
-        fabCreateShortcut.setY(calculateFabVerticalPosition());
-    }
-
-    /**
-     * <b>Before</b> effectively drawing the layout, the {@link android.view.ViewTreeObserver} will
-     * place the {@code Floating Action Button} at the end of the {@link android.support.v7.widget.Toolbar}
-     * so that the end of the {@code Toolbar} is exactly at half of the {@code Floating Action Button}'s
-     * background circle.
-     */
-    private float calculateFabVerticalPosition() {
-        float toolbarHeight = (float) toolbar.getHeight();
-        float fabHeight = (float) fabCreateShortcut.getHeight();
-
-        return toolbarHeight - fabHeight/2;
     }
 
     /**

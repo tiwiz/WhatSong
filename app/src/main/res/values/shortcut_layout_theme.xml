@@ -4,7 +4,7 @@
     <style name="ToolbarImageView" parent="Theme.AppCompat.Light">
         <item name="android:layout_width">@dimen/shortcut_toolbar_image_max_side</item>
         <item name="android:layout_height">@dimen/shortcut_toolbar_image_max_side</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_marginBottom">@dimen/shortcut_toolbar_image_margin_bottom</item>
         <item name="android:layout_marginTop">@dimen/shortcut_toolbar_image_margin_top</item>
         <item name="android:background">@android:color/transparent</item>
@@ -51,11 +51,11 @@
     <style name="ShortcutFab" parent="Base.TextAppearance.AppCompat.Button">
         <item name="android:layout_width">@dimen/fab_diameter</item>
         <item name="android:layout_height">@dimen/fab_diameter</item>
-        <item name="android:layout_gravity">right</item>
-        <!--<item name="android:layout_marginTop">@dimen/fab_button_top_margin</item>-->
+        <item name="android:layout_gravity">bottom|right</item>
         <item name="android:layout_marginRight">@dimen/fab_button_side_margin</item>
+        <item name="android:layout_marginBottom">@dimen/fab_button_side_margin</item>
         <item name="android:src">@drawable/ic_accept</item>
-        <item name="android:tint">@color/icons</item>
+        <item name="android:tint">@color/fab_icon_tint</item>
         <item name="android:background">@drawable/fab_background</item>
         <item name="android:elevation">@dimen/fab_elevation_low</item>
         <item name="android:stateListAnimator">@anim/button_elevation</item>
