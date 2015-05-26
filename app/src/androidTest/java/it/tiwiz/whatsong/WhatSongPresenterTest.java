@@ -46,11 +46,11 @@ public class WhatSongPresenterTest extends TestCase{
         realPresenter.onProviderIconChanged(true);
         assertEquals(mockedView.hasOnChangeBigIconBeenCalled(), true);
         int resourceId = mockedView.getIconResourceId();
-        assertNotSame(resourceId, R.drawable.ic_launcher_vectorized);
+        assertNotSame(resourceId, R.drawable.whatsong_logo);
 
         realPresenter.onProviderIconChanged(false);
         resourceId = mockedView.getIconResourceId();
-        assertEquals(resourceId, R.drawable.ic_launcher_vectorized);
+        assertEquals(resourceId, R.drawable.whatsong_logo);
     }
 
     public void testOnShortcutRequested() throws Exception {

@@ -75,7 +75,7 @@ public class ShortcutPresenter implements WhatSongPresenter {
         if (isSelected) {
             newIcon = getIconResourceForLastSelectedItem();
         } else {
-            newIcon = R.drawable.ic_launcher_vectorized;
+            newIcon = R.drawable.whatsong_logo;
         }
         whatSongView.onChangeBigIcon(newIcon);
     }
@@ -86,7 +86,7 @@ public class ShortcutPresenter implements WhatSongPresenter {
      */
     private int getIconResourceForLastSelectedItem() {
         final String packageName = whatSongModel.getPackageName(lastSelectedPosition);
-        final int realPosition = IndexUtils.getRealPositionFrom(packageName);
+        final int realPosition = IndexUtils.getRealPositionFrom(packageName, R.array.softwares_names);
         return IconUtils.getMusicAppBigIconResourceID(realPosition);
     }
 
@@ -118,7 +118,7 @@ public class ShortcutPresenter implements WhatSongPresenter {
     public void onPackagesRetrieved(PackageData[] packageData) {
 
         whatSongModel.setInstalledPackages(packageData);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(whatSongView.getViewContext(), android.R.layout.simple_spinner_item, whatSongModel.getPackagesNames());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(whatSongView.getViewContext(), R.layout.custom_spinner, whatSongModel.getPackagesNames());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         whatSongView.onUpdateListAdapter(adapter);
         whatSongView.onUpdateShortcutName(whatSongModel.getPackageName(0));

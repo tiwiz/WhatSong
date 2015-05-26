@@ -32,7 +32,7 @@ public class ShortcutUtils {
 
         final String selectedPackage = listOfPackages[position];
         final String packageName = listOfPackages[position];
-        final int realPosition = IndexUtils.getRealPositionFrom(packageName);
+        final int realPosition = IndexUtils.getRealPositionFrom(packageName, R.array.softwares_packages);
         int resID = getShortcutIconFrom(realPosition, isSpecificIcon);
 
         Intent launchIntent = IntentUtils.getLaunchIntent(realPosition, selectedPackage);

@@ -21,6 +21,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="ShortcutSpinnerLabel" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
     <style name="ShortcutEditText" parent="Theme.AppCompat.Light">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -28,6 +36,7 @@
         <item name="android:layout_marginRight">@dimen/shortcut_element_medium_space</item>
         <item name="android:layout_marginLeft">@dimen/shortcut_element_medium_space</item>
         <item name="android:inputType">textCapWords</item>
+        <item name="android:textColor">@color/accent</item>
         <item name="android:backgroundTint">@color/accent</item>
     </style>
 
@@ -36,7 +45,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxHeight">@dimen/shortcut_tile_height</item>
         <item name="android:layout_marginLeft">@dimen/shortcut_element_small_space</item>
+        <item name="android:layout_marginRight">@dimen/shortcut_element_small_space</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:popupBackground">@color/dropdown_background_color</item>
     </style>
 
     <style name="ShortcutSwitch" parent="Theme.AppCompat.Light">
@@ -44,7 +56,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxHeight">@dimen/shortcut_tile_height</item>
         <item name="android:paddingRight">@dimen/shortcut_element_medium_space</item>
-        <item name="android:paddingLeft">@dimen/shortcut_subhead_side_padding</item>
+        <item name="android:paddingLeft">@dimen/shortcut_element_medium_space</item>
+        <item name="android:layout_margin">@dimen/shortcut_element_medium_space</item>
         <item name="android:checked">true</item>
     </style>
 
@@ -56,8 +69,14 @@
         <item name="android:layout_marginBottom">@dimen/fab_button_side_margin</item>
         <item name="android:src">@drawable/ic_accept</item>
         <item name="android:tint">@color/fab_icon_tint</item>
+        <item name="android:padding">16dp</item>
         <item name="android:background">@drawable/fab_background</item>
         <item name="android:elevation">@dimen/fab_elevation_low</item>
         <item name="android:stateListAnimator">@anim/button_elevation</item>
+    </style>
+
+    <style name="TextAppearance.FloatLabel" parent="android:TextAppearance.Small">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>

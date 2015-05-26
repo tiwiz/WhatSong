@@ -33,16 +33,15 @@ public class IndexUtils {
     }
 
     /**
-     *
      * @return the real position of the package name inside the given list
      */
-    public static int getRealPositionFrom(String packageName){
+    public static int getRealPositionFrom(String packageName, int searchDomainId){
 
-        String[] packages = WhatSongApp.getInstance().getResources().getStringArray(R.array.softwares_packages);
-        int i;
+        String[] packages = WhatSongApp.getInstance().getResources().getStringArray(searchDomainId);
+        int position;
 
-        for(i = 0; (i < packages.length) && (!packageName.equals(packages[i])); i++);
+        for(position = 0; (position < packages.length) && (!packageName.contains(packages[position])); position++);
 
-        return i;
+        return position;
     }
 }

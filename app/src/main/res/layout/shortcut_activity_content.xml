@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:orientation="vertical"
-        android:weightSum="100">
+        android:layout_margin="16dp"
+        tools:background="@android:color/holo_blue_bright">
 
         <it.tiwiz.whatsong.views.AnimatedImageView
             android:id="@+id/imgLogo"
-            android:src="@drawable/whatsong_logo"
-            style="@style/ToolbarImageView" />
+            style="@style/ToolbarImageView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/whatsong_logo" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:background="@android:color/transparent"
-            android:layout_weight="99">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/subheadHint"
+            style="@style/ShortcutSubheadElement"
+            android:layout_below="@id/imgLogo"
+            android:text="@string/pref_provider_title" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:orientation="vertical">
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spinnerInstalledProviders"
+            style="@style/ShortcutSpinner"
+            android:layout_below="@id/subheadHint" />
 
-                <TextView
-                    style="@style/ShortcutSubheadElement"
-                    android:text="@string/pref_provider_title" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewShortcutName"
+            style="@style/ShortcutSubheadElement"
+            android:layout_below="@id/spinnerInstalledProviders"
+            android:text="@string/card_shortcut_message_title" />
 
-                <Spinner
-                    style="@style/ShortcutSpinner"
-                    android:id="@+id/spinnerInstalledProviders" />
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/editTextShortcutName"
+            style="@style/ShortcutEditText"
+            android:layout_below="@id/textViewShortcutName"
+            android:hint="@string/card_shortcut_message_title" />
 
-                <include layout="@layout/shortcut_commands" />
-            </LinearLayout>
 
-        </ScrollView>
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switchIcon"
+            style="@style/ShortcutSwitch"
+            android:layout_below="@id/editTextShortcutName"
+            android:text="@string/card_shortcut_icon_subtitle" />
 
-    </LinearLayout>
+    </RelativeLayout>
+
 
 </merge>
