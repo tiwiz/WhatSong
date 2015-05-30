@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="shortcut_toolbar_image_max_side">100dp</dimen>
-    <dimen name="shortcut_toolbar_image_margin_top">48dp</dimen>
-    <dimen name="shortcut_toolbar_image_margin_bottom">48dp</dimen>
+    <dimen name="shortcut_toolbar_image_margin_top">24dp</dimen>
+    <dimen name="shortcut_toolbar_image_margin_bottom">24dp</dimen>
     <dimen name="shortcut_toolbar_image_container_padding">24dp</dimen>
     <dimen name="shortcut_subhead_side_padding">24dp</dimen>
     <dimen name="shortcut_subhead_top_margin">12dp</dimen>

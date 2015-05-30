@@ -16,10 +16,19 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/whatsong_logo" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_whatsong_text"
+            android:id="@+id/whatsongName"
+            android:scaleType="fitCenter"
+            android:layout_below="@id/imgLogo"
+            tools:background="@android:color/holo_green_dark"/>
+
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/subheadHint"
             style="@style/ShortcutSubheadElement"
-            android:layout_below="@id/imgLogo"
+            android:layout_below="@id/whatsongName"
             android:text="@string/pref_provider_title" />
 
         <android.support.v7.widget.AppCompatSpinner
@@ -36,8 +45,7 @@
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/editTextShortcutName"
             style="@style/ShortcutEditText"
-            android:layout_below="@id/textViewShortcutName"
-            android:hint="@string/card_shortcut_message_title" />
+            android:layout_below="@id/textViewShortcutName" />
 
 
         <android.support.v7.widget.SwitchCompat

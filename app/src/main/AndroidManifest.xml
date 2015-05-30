@@ -7,12 +7,12 @@
     <application
         android:name=".WhatSongApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/whatsong_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <service
             android:name=".WhatSongExtension"
-            android:icon="@drawable/ic_launcher"
+            android:icon="@drawable/whatsong_logo"
             android:label="WhatSong"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
