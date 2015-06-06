@@ -57,7 +57,7 @@ public class ShortcutUtils {
             return IconUtils.getMusicAppIconResourceID(realPosition);
         }
         else {
-            return R.drawable.ic_launcher;
+            return R.drawable.whatsong_logo;
         }
     }
 }

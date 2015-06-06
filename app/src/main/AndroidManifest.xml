@@ -7,7 +7,7 @@
     <application
         android:name=".WhatSongApp"
         android:allowBackup="true"
-        android:icon="@drawable/whatsong_logo"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <service
@@ -33,6 +33,7 @@
         <activity
             android:name=".ShortcutActivity"
             android:label="@string/app_name"
+            android:icon="@drawable/whatsong_logo"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
