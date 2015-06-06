@@ -3,7 +3,7 @@
 
     <!-- Material palette -->
     <color name="primary">#03a9f4</color>
-    <color name="primary_dark">#0288d1</color>
+    <color name="primary_dark">#438589</color>
     <color name="primary_light">#b3e5fc</color>
     <color name="accent">#ffffff</color>
     <color name="primary_text">#212121</color>

@@ -17,13 +17,13 @@
             android:src="@drawable/whatsong_logo" />
 
         <ImageView
+            android:id="@+id/whatsongName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_whatsong_text"
-            android:id="@+id/whatsongName"
-            android:scaleType="fitCenter"
             android:layout_below="@id/imgLogo"
-            tools:background="@android:color/holo_green_dark"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_whatsong_text"
+            tools:background="@android:color/holo_green_dark" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/subheadHint"
@@ -36,22 +36,26 @@
             style="@style/ShortcutSpinner"
             android:layout_below="@id/subheadHint" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/textViewShortcutName"
-            style="@style/ShortcutSubheadElement"
-            android:layout_below="@id/spinnerInstalledProviders"
-            android:text="@string/card_shortcut_message_title" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/floatingLabelWrapper"
+            style="@style/ShortcutTextInput"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@id/spinnerInstalledProviders">
 
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/editTextShortcutName"
-            style="@style/ShortcutEditText"
-            android:layout_below="@id/textViewShortcutName" />
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/editTextShortcutName"
+                android:hint="@string/card_shortcut_message_title"
+                style="@style/ShortcutEditText" />
+
+        </android.support.design.widget.TextInputLayout>
 
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchIcon"
             style="@style/ShortcutSwitch"
-            android:layout_below="@id/editTextShortcutName"
+            android:layout_below="@id/floatingLabelWrapper"
+            android:paddingLeft="4dp"
             android:text="@string/card_shortcut_icon_subtitle" />
 
     </RelativeLayout>

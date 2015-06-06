@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contentParent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/contentParent"
-    android:background="@drawable/main_background">
+    android:background="@drawable/main_background"
+    android:orientation="vertical">
 
-    <include layout="@layout/shortcut_activity_content"/>
+    <include layout="@layout/shortcut_activity_content" />
 
     <ImageButton
         android:id="@+id/fabMake"
-        style="@style/ShortcutFab"/>
+        style="@style/ShortcutFab" />
 
 </FrameLayout>
