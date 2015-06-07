@@ -5,13 +5,13 @@ android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
-
     defaultConfig {
         versionCode 13
         versionName "1.0"
         applicationId "it.tiwiz.whatsong"
         minSdkVersion 17
         targetSdkVersion 22
+        buildConfigField "String", "ANALYTICS_USERID", "\"" + ANALYTICS_UID + "\""
     }
 
     buildTypes {

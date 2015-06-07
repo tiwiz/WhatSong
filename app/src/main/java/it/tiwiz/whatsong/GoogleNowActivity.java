@@ -7,9 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import it.tiwiz.whatsong.R;
+import it.tiwiz.whatsong.utils.BaseActivity;
 import it.tiwiz.whatsong.utils.GoogleNowUtils;
 
-public class GoogleNowActivity extends AppCompatActivity {
+public class GoogleNowActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,11 @@ public class GoogleNowActivity extends AppCompatActivity {
         startActivity(launchIntent);
 
         finish();
+    }
+
+    @Override
+    public String getActivityTag() {
+        return GoogleNowActivity.class.getSimpleName();
     }
 
 }

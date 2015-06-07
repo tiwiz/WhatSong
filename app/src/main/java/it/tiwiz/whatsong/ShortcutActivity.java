@@ -1,6 +1,5 @@
 package it.tiwiz.whatsong;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
@@ -21,6 +19,7 @@ import android.widget.Spinner;
 import it.tiwiz.whatsong.mvp.ShortcutPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongView;
+import it.tiwiz.whatsong.utils.BaseActivity;
 import it.tiwiz.whatsong.utils.IntentUtils;
 import it.tiwiz.whatsong.utils.PackageData;
 import it.tiwiz.whatsong.views.AnimatedImageView;
@@ -39,7 +38,7 @@ import it.tiwiz.whatsong.views.AnimatedImageView;
  * @see it.tiwiz.whatsong.mvp.ShortcutPresenter Presenter implementation
  * @see it.tiwiz.whatsong.mvp.ShortcutModel Model implementation
  */
-public class ShortcutActivity extends Activity implements AdapterView.OnItemSelectedListener,
+public class ShortcutActivity extends BaseActivity implements AdapterView.OnItemSelectedListener,
         CompoundButton.OnCheckedChangeListener, View.OnClickListener, WhatSongView {
 
     private EditText editTextShortcutName;
@@ -62,6 +61,11 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
         setContentView(R.layout.shortcut_activity);
         whatSongPresenter = new ShortcutPresenter(this);
         initActivity();
+    }
+
+    @Override
+    public String getActivityTag() {
+        return ShortcutActivity.class.getSimpleName();
     }
 
     /**
@@ -169,6 +173,8 @@ public class ShortcutActivity extends Activity implements AdapterView.OnItemSele
         whatSongPresenter.onShortcutRequest(editTextShortcutName.getText().toString(),
                 switchIcon.isChecked());
     }
+
+
 
     /**
      * This class is the receiver that will take care of listening the response from the
