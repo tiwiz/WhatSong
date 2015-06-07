@@ -53,6 +53,11 @@
     <string name="report_sending_message_success">Report sent successfully!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_google_now">WhatSong Quick Launch</string>
+    <string name="invite_friends_category">Share</string>
+    <string name="invite_friends_title">Share WhatSong with your friends!</string>
+    <string name="invite_friends_summary">Try the new App Invitation feature to help spread the word!</string>
+    <string name="invite_invitation_title">Try out WhatSong!</string>
+    <string name="invite_invitation_message">I use it to launch all my music recognition providers from DashClock and Google Now gesture, try it!</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

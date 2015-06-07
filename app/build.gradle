@@ -1,10 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
+
     defaultConfig {
+        versionCode 13
+        versionName "1.0"
         applicationId "it.tiwiz.whatsong"
         minSdkVersion 17
         targetSdkVersion 22
@@ -26,5 +30,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:design:22.2.0'
     compile 'com.google.android.apps.dashclock:dashclock-api:2.0.0'
+    compile 'com.google.android.gms:play-services:7.5.+'
+    compile 'com.google.android.gms:play-services-analytics:7.5.0'
     provided 'com.intellij:annotations:+@jar'
 }

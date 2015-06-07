@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/pref_cat_google_now_provider">
+    <PreferenceCategory android:title="@string/invite_friends_category"
+        android:icon="@android:drawable/ic_menu_share">
+        <it.tiwiz.whatsong.utils.InvitationPreference />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_cat_google_now_provider"
+        android:icon="@android:drawable/ic_menu_search">
         <ListPreference
             android:entries="@array/softwares_names"
             android:entryValues="@array/softwares_names"
@@ -9,7 +14,8 @@
             android:summary="@string/pref_google_now_summary"
             android:title="@string/pref_google_now_title" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_cat_search_provider">
+    <PreferenceCategory android:title="@string/pref_cat_search_provider"
+        android:icon="@android:drawable/ic_menu_search">
         <ListPreference
             android:entries="@array/softwares_names"
             android:entryValues="@array/softwares_names"
@@ -17,7 +23,8 @@
             android:summary="@string/pref_provider_summary"
             android:title="@string/pref_provider_title" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_cat_appearance">
+    <PreferenceCategory android:title="@string/pref_cat_appearance"
+        android:icon="@android:drawable/ic_menu_edit">
         <SwitchPreference
             android:defaultValue="true"
             android:key="@string/pref_icon_key"

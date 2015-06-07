@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="it.tiwiz.whatsong"
-    android:versionCode="12"
-    android:versionName="0.3.6-alpha" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="it.tiwiz.whatsong">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
 
     <application
         android:name=".WhatSongApp"
@@ -60,18 +66,32 @@
 
         <activity
             android:name=".GoogleNowActivity"
-            android:label="@string/title_activity_google_now"
             android:excludeFromRecents="true"
+            android:label="@string/title_activity_google_now"
             android:noHistory="true"
-            android:theme="@style/Theme.Transparent">
-
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
-                <action android:name="android.intent.action.ASSIST"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.ASSIST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <meta-data android:name="com.android.systemui.action_assist_icon"
+
+            <meta-data
+                android:name="com.android.systemui.action_assist_icon"
                 android:resource="@drawable/google_now_replacement_icon" />
         </activity>
+
+        <receiver
+            android:name=".AppInvitationReceiver"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>
