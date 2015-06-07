@@ -32,8 +32,8 @@
 
         <activity
             android:name=".ShortcutActivity"
-            android:label="@string/app_name"
             android:icon="@drawable/whatsong_logo"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
@@ -57,6 +57,11 @@
             android:name=".SearchInstalledProvidersService"
             android:exported="false" >
         </service>
+
+        <activity
+            android:name=".views.GoogleNowActivity"
+            android:label="@string/title_activity_google_now" >
+        </activity>
     </application>
 
 </manifest>

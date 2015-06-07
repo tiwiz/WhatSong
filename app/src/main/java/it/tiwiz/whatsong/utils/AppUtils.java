@@ -1,8 +1,6 @@
 package it.tiwiz.whatsong.utils;
 
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 
 import it.tiwiz.whatsong.R;
 import it.tiwiz.whatsong.WhatSongApp;

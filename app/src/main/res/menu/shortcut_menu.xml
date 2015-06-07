@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/shortcut_accept"
-          android:icon="@drawable/ic_accept"
-          android:showAsAction="always"
-          android:title="@string/actionbar_create_title"
-          android:titleCondensed="@string/actionbar_create_title_condensed"/>
-</menu>

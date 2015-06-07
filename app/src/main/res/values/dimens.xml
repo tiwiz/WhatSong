@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
     <dimen name="shortcut_toolbar_image_max_side">100dp</dimen>
     <dimen name="shortcut_toolbar_image_margin_top">24dp</dimen>
     <dimen name="shortcut_toolbar_image_margin_bottom">24dp</dimen>
