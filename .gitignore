@@ -29,3 +29,4 @@ proguard/
 
 
 app/mirror
+gradle.properties
