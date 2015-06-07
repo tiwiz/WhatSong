@@ -52,7 +52,7 @@
     <string name="report_sending_message">Sending report...</string>
     <string name="report_sending_message_success">Report sent successfully!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_google_now">GoogleNowActivity</string>
+    <string name="title_activity_google_now">WhatSong Quick Launch</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
