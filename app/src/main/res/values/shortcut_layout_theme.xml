@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="ShortcutMainContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">16dp</item>
+    </style>
+
     <style name="ToolbarImageView" parent="Theme.AppCompat.Light">
         <item name="android:layout_width">@dimen/shortcut_toolbar_image_max_side</item>
         <item name="android:layout_height">@dimen/shortcut_toolbar_image_max_side</item>
@@ -8,6 +14,16 @@
         <item name="android:layout_marginBottom">@dimen/shortcut_toolbar_image_margin_bottom</item>
         <item name="android:layout_marginTop">@dimen/shortcut_toolbar_image_margin_top</item>
         <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:src">@drawable/whatsong_logo</item>
+    </style>
+
+    <style name="ShortcutImageName">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@id/imgLogo</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:src">@drawable/ic_whatsong_text</item>
     </style>
 
     <style name="ShortcutSubheadElement" parent="TextAppearance.AppCompat.Subhead">
@@ -19,6 +35,7 @@
         <item name="android:paddingLeft">@dimen/shortcut_subhead_side_padding</item>
         <item name="android:textColor">@color/accent</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:text">@string/pref_provider_title</item>
     </style>
 
     <style name="ShortcutSpinnerLabel" parent="TextAppearance.AppCompat.Subhead">
@@ -38,6 +55,7 @@
         <item name="android:inputType">textCapWords</item>
         <item name="android:textColor">@color/accent</item>
         <item name="android:backgroundTint">@color/accent</item>
+        <item name="android:hint">@string/card_shortcut_message_title</item>
     </style>
 
     <style name="ShortcutSpinner" parent="Theme.AppCompat.Light">
@@ -56,6 +74,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
         <item name="android:textColor">@color/accent</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -66,6 +86,8 @@
         <item name="android:maxHeight">@dimen/shortcut_tile_height</item>
         <item name="android:layout_margin">@dimen/shortcut_element_medium_space</item>
         <item name="android:checked">true</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:text">@string/card_shortcut_icon_subtitle</item>
     </style>
 
     <style name="ShortcutFab" parent="Base.TextAppearance.AppCompat.Button">

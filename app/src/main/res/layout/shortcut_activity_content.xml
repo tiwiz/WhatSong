@@ -5,31 +5,22 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
+        style="@style/ShortcutMainContainer"
         tools:background="@android:color/holo_blue_bright">
 
         <it.tiwiz.whatsong.views.AnimatedImageView
             android:id="@+id/imgLogo"
-            style="@style/ToolbarImageView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/whatsong_logo" />
+            style="@style/ToolbarImageView" />
 
         <ImageView
             android:id="@+id/whatsongName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imgLogo"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_whatsong_text"
+            style="@style/ShortcutImageName"
             tools:background="@android:color/holo_green_dark" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/subheadHint"
             style="@style/ShortcutSubheadElement"
-            android:layout_below="@id/whatsongName"
-            android:text="@string/pref_provider_title" />
+            android:layout_below="@id/whatsongName" />
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/spinnerInstalledProviders"
@@ -39,13 +30,10 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/floatingLabelWrapper"
             style="@style/ShortcutTextInput"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_below="@id/spinnerInstalledProviders">
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/editTextShortcutName"
-                android:hint="@string/card_shortcut_message_title"
                 style="@style/ShortcutEditText" />
 
         </android.support.design.widget.TextInputLayout>
@@ -54,9 +42,7 @@
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchIcon"
             style="@style/ShortcutSwitch"
-            android:layout_below="@id/floatingLabelWrapper"
-            android:paddingLeft="4dp"
-            android:text="@string/card_shortcut_icon_subtitle" />
+            android:layout_below="@id/floatingLabelWrapper" />
 
     </RelativeLayout>
 

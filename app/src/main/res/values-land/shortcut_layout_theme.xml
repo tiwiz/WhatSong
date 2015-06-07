@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShortcutLinearContainer" parent="ShortcutMainContainer">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="ShortcutFab" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="android:layout_width">@dimen/fab_diameter</item>
+        <item name="android:layout_height">@dimen/fab_diameter</item>
+        <item name="android:layout_gravity">top|right</item>
+        <item name="android:layout_marginRight">@dimen/fab_button_side_margin</item>
+        <item name="android:layout_marginTop">@dimen/fab_button_side_margin</item>
+        <item name="android:src">@drawable/ic_accept</item>
+        <item name="android:tint">@color/fab_icon_tint</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@drawable/fab_background</item>
+        <item name="android:elevation">@dimen/fab_elevation_low</item>
+        <item name="android:stateListAnimator">@anim/button_elevation</item>
+    </style>
+
+    <style name="ShortcutLeftColumn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ShortcutRightColumn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:layout_marginTop">@dimen/fab_button_side_margin</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>
