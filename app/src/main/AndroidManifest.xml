@@ -59,8 +59,18 @@
         </service>
 
         <activity
-            android:name=".views.GoogleNowActivity"
-            android:label="@string/title_activity_google_now" >
+            android:name=".GoogleNowActivity"
+            android:label="@string/title_activity_google_now"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@style/Theme.Transparent">
+
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.systemui.action_assist_icon"
+                android:resource="@drawable/google_now_replacement_icon" />
         </activity>
     </application>
 
