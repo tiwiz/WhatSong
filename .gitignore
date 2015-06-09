@@ -30,3 +30,4 @@ proguard/
 
 app/mirror
 gradle.properties
+signing.properties
