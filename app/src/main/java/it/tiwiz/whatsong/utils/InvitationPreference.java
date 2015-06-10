@@ -1,7 +1,9 @@
 package it.tiwiz.whatsong.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -12,6 +14,7 @@ import com.google.android.gms.appinvite.AppInviteInvitation;
 
 import java.util.Map;
 
+import it.tiwiz.whatsong.BuildConfig;
 import it.tiwiz.whatsong.R;
 import it.tiwiz.whatsong.WhatSongApp;
 
@@ -21,15 +24,11 @@ import it.tiwiz.whatsong.WhatSongApp;
 public class InvitationPreference extends Preference{
 
     private final Intent invitationIntent;
-    private final Tracker trackerInstance;
-    private final Map<String, String> eventData;
 
     public InvitationPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setUpUiData();
         invitationIntent = createInvitationIntent();
-        trackerInstance = getTrackerInstance();
-        eventData = getEventData();
     }
 
     public InvitationPreference(Context context, AttributeSet attrs) {
@@ -40,8 +39,6 @@ public class InvitationPreference extends Preference{
         super(context);
         setUpUiData();
         invitationIntent = createInvitationIntent();
-        trackerInstance = getTrackerInstance();
-        eventData = getEventData();
     }
 
     private void setUpUiData() {
@@ -65,6 +62,7 @@ public class InvitationPreference extends Preference{
 
         return new AppInviteInvitation.IntentBuilder(invitationTitle)
                 .setMessage(invitationMessage)
+                .setGoogleAnalyticsTrackingId(BuildConfig.ANALYTICS_USERID)
                 .build();
     }
 
@@ -73,6 +71,5 @@ public class InvitationPreference extends Preference{
         super.onClick();
 
         getContext().startActivity(invitationIntent);
-        trackerInstance.send(eventData);
     }
 }
