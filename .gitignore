@@ -31,3 +31,4 @@ proguard/
 app/mirror
 gradle.properties
 signing.properties
+app/google-services.json
