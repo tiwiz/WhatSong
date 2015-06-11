@@ -2,6 +2,7 @@ package it.tiwiz.whatsong.utils;
 
 import android.content.Intent;
 
+import it.tiwiz.whatsong.intents.IntentFactory;
 import it.tiwiz.whatsong.settings.SettingsData;
 
 /**
@@ -23,6 +24,6 @@ public class GoogleNowUtils {
         }
 
         final String packageName = AppUtils.getPackageNameFrom(settingsData.getIndex());
-        return IntentUtils.getLaunchIntent(settingsData.getIndex(), packageName);
+        return IntentFactory.getLaunchIntentFor(settingsData.getIndex(), packageName);
     }
 }

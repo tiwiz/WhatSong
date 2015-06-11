@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.google.android.apps.dashclock.api.ExtensionData;
 
 import it.tiwiz.whatsong.R;
+import it.tiwiz.whatsong.intents.IntentFactory;
 import it.tiwiz.whatsong.settings.Settings;
 import it.tiwiz.whatsong.settings.SettingsData;
 
@@ -35,7 +36,7 @@ public class ExtensionDataConverter {
         String expandedBody = SettingsData.Rules.getExpandedBodyBasedOn(settingsData);
         String contentDescription = Settings.getString(R.string.content_description, settingsData.getAppTitle());
         String packageName = AppUtils.getPackageNameFrom(settingsData.getIndex());
-        Intent launchProvider = IntentUtils.getLaunchIntent(settingsData.getIndex(), packageName);
+        Intent launchProvider = IntentFactory.getLaunchIntentFor(settingsData.getIndex(), packageName);
 
         ExtensionData data = new ExtensionData()
                 .visible(true)
