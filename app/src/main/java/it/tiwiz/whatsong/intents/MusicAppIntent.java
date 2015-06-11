@@ -8,5 +8,5 @@ import android.content.Intent;
  */
 public interface MusicAppIntent {
 
-    public Intent getInstance();
+    Intent getInstance();
 }

@@ -1,5 +1,9 @@
 package it.tiwiz.whatsong.settings;
 
+import android.support.annotation.NonNull;
+
+import org.intellij.lang.annotations.MagicConstant;
+
 import it.tiwiz.whatsong.R;
 import it.tiwiz.whatsong.utils.AppUtils;
 import it.tiwiz.whatsong.utils.IconUtils;
@@ -18,14 +22,39 @@ public class SettingsData {
     final boolean showShortTitle;
     int index;
 
-    public SettingsData() {
+    public static final int DASHCLOCK = 0;
+    public static final int GOOGLE_NOW = 1;
+
+    @MagicConstant(intValues = {DASHCLOCK, GOOGLE_NOW})
+    @interface Provider {}
+
+    public SettingsData(@Provider int provider) {
         defaultProvider = Settings.getDefaultMusicRecognitionProvider();
-        appTitle = Settings.getAppTitleBasedOnGivenProvider(defaultProvider);
+        appTitle = getCorrectNameBasedOn(provider);
         useAppSpecificIcon = Settings.getUseAppSpecificIcon();
         showExtendedBody = Settings.getShowExtendedBody();
         useAppSpecificTitle = Settings.getUseAppSpecificName();
         showShortTitle = Settings.getUseAppShortName();
         index = IndexUtils.getInternalIndexFrom(appTitle);
+    }
+
+    @NonNull
+    private String getCorrectNameBasedOn(@Provider int provider) {
+        String appName;
+
+        switch (provider) {
+            case DASHCLOCK:
+                appName = Settings.getDashClockAppTitleBasedOnGivenProvider(defaultProvider);
+                break;
+            case GOOGLE_NOW:
+                appName = Settings.getGoogleNowAppTitleBasedOnGiveProviderOr(defaultProvider);
+                break;
+            default:
+                appName = "";
+                break;
+        }
+
+        return appName;
     }
 
     public String getDefaultProvider() {

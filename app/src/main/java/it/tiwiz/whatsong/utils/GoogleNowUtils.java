@@ -2,6 +2,7 @@ package it.tiwiz.whatsong.utils;
 
 import android.content.Intent;
 
+import it.tiwiz.whatsong.intents.IntentFactory;
 import it.tiwiz.whatsong.settings.SettingsData;
 
 /**
@@ -16,13 +17,13 @@ public class GoogleNowUtils {
      */
     public static Intent getIntentForChosenProvider() {
 
-        SettingsData settingsData = new SettingsData();
+        SettingsData settingsData = new SettingsData(SettingsData.GOOGLE_NOW);
 
         if (!SettingsData.Rules.isChosenAppInstalled(settingsData)) {
             settingsData.resetToDefaulProvider();
         }
 
         final String packageName = AppUtils.getPackageNameFrom(settingsData.getIndex());
-        return IntentUtils.getLaunchIntent(settingsData.getIndex(), packageName);
+        return IntentFactory.getLaunchIntentFor(settingsData.getIndex(), packageName);
     }
 }

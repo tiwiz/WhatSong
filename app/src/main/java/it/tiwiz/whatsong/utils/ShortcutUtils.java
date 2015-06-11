@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import it.tiwiz.whatsong.R;
+import it.tiwiz.whatsong.intents.IntentFactory;
 
 /**
  * This class contains a unique method to create a shortcut {@link android.content.Intent} using
@@ -35,7 +36,7 @@ public class ShortcutUtils {
         final int realPosition = IndexUtils.getRealPositionFrom(packageName, R.array.softwares_packages);
         int resID = getShortcutIconFrom(realPosition, isSpecificIcon);
 
-        Intent launchIntent = IntentUtils.getLaunchIntent(realPosition, selectedPackage);
+        Intent launchIntent = IntentFactory.getLaunchIntentFor(realPosition, selectedPackage);
 
         Shortcut shortcut = new Shortcut.Builder()
                 .setIconResource(resID)

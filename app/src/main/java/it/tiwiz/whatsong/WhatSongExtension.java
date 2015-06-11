@@ -10,7 +10,7 @@ public class WhatSongExtension extends DashClockExtension {
     @Override
     protected void onUpdateData(int i) {
 
-        SettingsData settingsData = new SettingsData();
+        SettingsData settingsData = new SettingsData(SettingsData.DASHCLOCK);
 
         ExtensionData data = ExtensionDataConverter.from(settingsData);
 
