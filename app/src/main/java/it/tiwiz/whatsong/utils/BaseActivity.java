@@ -20,8 +20,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         tracker = ((WhatSongApp)WhatSongApp.getInstance()).getDefaultTracker();
 
-        final String startingActivityMessage = String.format("Starting Activity: %s", getActivityTag());
-        tracker.setScreenName(startingActivityMessage);
+        trackActivityBehaviour(String.format("Starting Activity: %s", getActivityTag()));
+    }
+
+    /**
+     * Sends screen starting data for tracking
+     */
+    private void trackActivityBehaviour(String trackingMessage) {
+        tracker.setScreenName(trackingMessage);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
