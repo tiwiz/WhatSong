@@ -1,14 +1,17 @@
 package it.tiwiz.whatsong.intents;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 
 public class IntentFactory {
+
     /**
      * Creates the {@link android.content.Intent} needed to launch the chosen
      * music recognition app.
      * @return {@link android.content.Intent} ready to be fired.
      */
-    public static Intent getLaunchIntentFor(int index, String packageName) {
+    @Nullable
+    public static Intent getLaunchIntentFor(int index, @Nullable String packageName) {
 
         MusicAppIntent intent;
 
@@ -32,6 +35,9 @@ public class IntentFactory {
                 break;
             case 7: //SoundTracking
                 intent = new SoundTracking(packageName);
+                break;
+            case 8: //LyricsMania - AngoloTesti
+                intent = new LyricsMania(packageName);
                 break;
             default:
                 intent = new EmptyIntent();
