@@ -17,7 +17,7 @@ public class GoogleNowUtils {
      */
     public static Intent getIntentForChosenProvider() {
 
-        SettingsData settingsData = new SettingsData();
+        SettingsData settingsData = new SettingsData(SettingsData.GOOGLE_NOW);
 
         if (!SettingsData.Rules.isChosenAppInstalled(settingsData)) {
             settingsData.resetToDefaulProvider();

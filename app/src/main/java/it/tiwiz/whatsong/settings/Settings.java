@@ -137,10 +137,24 @@ public class Settings {
     }
 
     /**
+     * This method will retrieve the specific app title based on the provider for the DashClock extension
+     */
+    public static String getDashClockAppTitleBasedOnGivenProvider(String defaultProvider) {
+        return getAppTitleBasedOnGivenProvider(R.string.pref_provider_key, defaultProvider);
+    }
+
+    /**
+     * This method will retrieve the specific app title based on the provider for the Google Now replacement
+     */
+    public static String getGoogleNowAppTitleBasedOnGiveProviderOr(String defaultProvider) {
+        return getAppTitleBasedOnGivenProvider(R.string.pref_google_now_key, defaultProvider);
+    }
+
+    /**
      * This method will retrieve the specific app title based on the provider
      */
-    public static String getAppTitleBasedOnGivenProvider(String defaultProvider) {
-        String preferenceKey = getStringKeyFrom(R.string.pref_provider_key);
+    private static String getAppTitleBasedOnGivenProvider(int preferenceKeyResId, String defaultProvider) {
+        String preferenceKey = getStringKeyFrom(preferenceKeyResId);
         return getStringValueFromPreferences(preferenceKey, defaultProvider);
     }
 
