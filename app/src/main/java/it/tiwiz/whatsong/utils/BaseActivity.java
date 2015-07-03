@@ -27,6 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * Sends screen starting data for tracking
      */
     private void trackActivityBehaviour(String trackingMessage) {
+        tracker.setAppName("WhatSong Android");
         tracker.setScreenName(trackingMessage);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
