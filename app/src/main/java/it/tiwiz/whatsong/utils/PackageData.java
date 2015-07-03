@@ -18,8 +18,8 @@ public class PackageData implements Parcelable {
     @MagicConstant(intValues = {PACKAGE_NAME, PACKAGE_LABEL})
     private @interface Keys{}
 
-    private String packageName;
-    private String packageLabel;
+    private final String packageName;
+    private final String packageLabel;
 
     public PackageData(String packageName, String packageLabel) {
         this.packageName = packageName;
@@ -29,6 +29,15 @@ public class PackageData implements Parcelable {
     private PackageData(Parcel in) {
         packageName = in.readString();
         packageLabel = in.readString();
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s (%s)", packageLabel, packageName);
     }
 
     /**
