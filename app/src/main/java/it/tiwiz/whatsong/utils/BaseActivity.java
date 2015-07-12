@@ -9,7 +9,7 @@ import com.google.android.gms.analytics.Tracker;
 import it.tiwiz.whatsong.WhatSongApp;
 
 /**
- *
+ * This class is the Base Activity containing the {@link Tracker} needed to work with Google Analytics
  */
 public abstract class BaseActivity extends AppCompatActivity {
 

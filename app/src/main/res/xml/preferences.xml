@@ -3,7 +3,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/invite_friends_category"
         android:icon="@android:drawable/ic_menu_share">
-        <it.tiwiz.whatsong.utils.InvitationPreference />
+        <it.tiwiz.whatsong.preferences.InvitationPreference />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_cat_google_now_provider"
         android:icon="@android:drawable/ic_menu_search">

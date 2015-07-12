@@ -1,4 +1,4 @@
-package it.tiwiz.whatsong.utils;
+package it.tiwiz.whatsong.preferences;
 
 import android.app.Activity;
 import android.content.Context;

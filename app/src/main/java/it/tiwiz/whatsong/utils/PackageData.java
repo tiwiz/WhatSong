@@ -16,7 +16,8 @@ public class PackageData implements Parcelable {
     private static final int PACKAGE_LABEL = 1;
 
     @MagicConstant(intValues = {PACKAGE_NAME, PACKAGE_LABEL})
-    private @interface Keys{}
+    private @interface Keys {
+    }
 
     private final String packageName;
     private final String packageLabel;
@@ -35,6 +36,10 @@ public class PackageData implements Parcelable {
         return packageName;
     }
 
+    public String getPackageLabel() {
+        return packageLabel;
+    }
+
     @Override
     public String toString() {
         return String.format("%s (%s)", packageLabel, packageName);
@@ -43,6 +48,7 @@ public class PackageData implements Parcelable {
     /**
      * This method uses the {@link org.intellij.lang.annotations.MagicConstant} annotation
      * to decide which of the data it needs to return.
+     *
      * @return a {@link java.lang.String} representing the
      */
     protected String getStringFromKey(@Keys int key) {
@@ -88,7 +94,7 @@ public class PackageData implements Parcelable {
 
     /**
      * This class contains the methods for extracting the packages and the names of the installed apps.
-     *
+     * <p>
      * This is needed because we want to filter only for the providers that are actually installed,
      * so that we have a shorter list of apps to chose from.
      *
