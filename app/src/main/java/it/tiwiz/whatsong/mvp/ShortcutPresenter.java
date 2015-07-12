@@ -1,7 +1,12 @@
 package it.tiwiz.whatsong.mvp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 
 import it.tiwiz.whatsong.R;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongModel;
@@ -9,8 +14,11 @@ import it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongView;
 import it.tiwiz.whatsong.utils.IconUtils;
 import it.tiwiz.whatsong.utils.IndexUtils;
+import it.tiwiz.whatsong.utils.InstalledAppsUtils;
 import it.tiwiz.whatsong.utils.PackageData;
 import it.tiwiz.whatsong.utils.ShortcutUtils;
+import rx.Subscriber;
+import rx.observers.Subscribers;
 
 /**
  * This class implement the {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter} {@code interface},
@@ -29,6 +37,9 @@ public class ShortcutPresenter implements WhatSongPresenter {
     private WhatSongView whatSongView;
     private WhatSongModel whatSongModel;
     private int lastSelectedPosition;
+    private ArrayList<PackageData> installedApps;
+
+    private static final String TAG = ShortcutPresenter.class.getSimpleName();
 
     /**
      * This constructor initializes a new model and starts keeping track of the last selected
@@ -49,6 +60,7 @@ public class ShortcutPresenter implements WhatSongPresenter {
         this.whatSongView = whatSongView;
         this.whatSongModel = whatSongModel;
         lastSelectedPosition = 0;
+        installedApps = new ArrayList<>();
     }
 
     /**
@@ -123,4 +135,34 @@ public class ShortcutPresenter implements WhatSongPresenter {
         whatSongView.onUpdateListAdapter(adapter);
         whatSongView.onUpdateShortcutName(whatSongModel.getPackageName(0));
     }
+
+    /**
+     * This method will get the installed apps from another thread and will then call the
+     * {@link #onPackagesRetrieved(PackageData[])} to set the data in the spinner
+     * @param context
+     */
+    @Override
+    public void onInstalledPackagesRequested(final Context context) {
+
+        InstalledAppsUtils.getInstalledApps(context)
+                .subscribe(Subscribers.create(
+                        (installedApps::add),
+                        (thowable -> {
+                            //TODO add a notification for the User
+                        }),
+                        (this::convertInstalledAppsListToVector)
+                ));
+    }
+
+    /**
+     * This method will create an array the same size of the installed apps list and will feed
+     * the {@code Presenter} with the data that will be displayed in the user interface
+     */
+    private void convertInstalledAppsListToVector() {
+        final int numberOfApps = installedApps.size();
+        PackageData[] packageData = new PackageData[numberOfApps];
+        onPackagesRetrieved(installedApps.toArray(packageData));
+    }
+
+
 }

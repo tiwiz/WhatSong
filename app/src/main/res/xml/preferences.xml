@@ -7,7 +7,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_cat_google_now_provider"
         android:icon="@android:drawable/ic_menu_search">
-        <ListPreference
+        <it.tiwiz.whatsong.preferences.InstalledAppsPreferences
             android:entries="@array/softwares_names"
             android:entryValues="@array/softwares_names"
             android:key="@string/pref_google_now_key"
@@ -16,7 +16,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_cat_search_provider"
         android:icon="@android:drawable/ic_menu_search">
-        <ListPreference
+        <it.tiwiz.whatsong.preferences.InstalledAppsPreferences
             android:entries="@array/softwares_names"
             android:entryValues="@array/softwares_names"
             android:key="@string/pref_provider_key"

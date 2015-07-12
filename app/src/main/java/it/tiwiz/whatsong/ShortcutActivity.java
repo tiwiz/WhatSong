@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -20,9 +20,12 @@ import it.tiwiz.whatsong.mvp.ShortcutPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongView;
 import it.tiwiz.whatsong.utils.BaseActivity;
+import it.tiwiz.whatsong.utils.InstalledAppsUtils;
 import it.tiwiz.whatsong.utils.IntentUtils;
 import it.tiwiz.whatsong.utils.PackageData;
 import it.tiwiz.whatsong.views.AnimatedImageView;
+import rx.Observable;
+import rx.Subscriber;
 
 /**
  * This {@link android.app.Activity} implements the {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView}
@@ -32,6 +35,7 @@ import it.tiwiz.whatsong.views.AnimatedImageView;
  * <b>MVP paradigm:</b><br/>
  * {@code View} <===> {@code Presenter} <===> {@code Model}
  * <br/><br/>
+ *
  * @see it.tiwiz.whatsong.mvp.interfaces.WhatSongView View interface
  * @see it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter Presenter interface
  * @see it.tiwiz.whatsong.mvp.interfaces.WhatSongModel Model interface
@@ -98,26 +102,11 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
         fabCreateShortcut.setOnClickListener(this);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        LocalBroadcastManager.getInstance(this).registerReceiver(updateReceiver, updateFilter);
-        initServiceCommunication();
-    }
-
-    /**
-     * This method starts the {@link android.app.Service} for retrieving the list of installed
-     * packages in the system
-     */
-    private void initServiceCommunication() {
-        Intent serviceIntent = IntentUtils.getStartInstalledProvidersService(this);
-        startService(serviceIntent);
-    }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(updateReceiver);
+    protected void onResume() {
+        super.onResume();
+        whatSongPresenter.onInstalledPackagesRequested(this);
     }
 
     /**
@@ -130,7 +119,8 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {}
+    public void onNothingSelected(AdapterView<?> adapterView) {
+    }
 
 
     @Override
@@ -175,11 +165,10 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
     }
 
 
-
     /**
      * This class is the receiver that will take care of listening the response from the
      * {@link it.tiwiz.whatsong.SearchInstalledProvidersService}.
-     *
+     * <p>
      * The expected behaviour is, as soon as the {@link android.content.Intent} is received,
      * the {@link android.os.Parcelable} array is extracted and the presenter's method
      * {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter#onPackagesRetrieved(it.tiwiz.whatsong.utils.PackageData[])}
@@ -204,7 +193,7 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
          * caller
          */
         private PackageData[] extractResultsFrom(Intent intent) {
-            PackageData[] response =  new PackageData[0];
+            PackageData[] response = new PackageData[0];
 
             if (intent.hasExtra(SearchInstalledProvidersService.SEARCH_PROVIDERS_KEY)) {
                 response = (PackageData[]) intent.getParcelableArrayExtra(
