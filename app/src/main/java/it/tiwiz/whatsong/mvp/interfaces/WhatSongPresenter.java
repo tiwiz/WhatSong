@@ -1,5 +1,7 @@
 package it.tiwiz.whatsong.mvp.interfaces;
 
+import android.content.Context;
+
 import it.tiwiz.whatsong.utils.PackageData;
 
 /**
@@ -54,4 +56,10 @@ public interface WhatSongPresenter {
      * how to handle the response
      */
     void onPackagesRetrieved(PackageData[] packageData);
+
+    /**
+     * This method will be colled when the list of the packages is requested, so that the {@code Presenter}
+     * can extract them from the system and invoke then the {@link #onPackagesRetrieved(PackageData[])}
+     */
+    void onInstalledPackagesRequested(final Context context);
 }

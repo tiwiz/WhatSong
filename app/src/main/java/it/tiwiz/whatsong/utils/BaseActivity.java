@@ -3,13 +3,14 @@ package it.tiwiz.whatsong.utils;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.facebook.appevents.AppEventsLogger;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import it.tiwiz.whatsong.WhatSongApp;
 
 /**
- *
+ * This class is the Base Activity containing the {@link Tracker} needed to work with Google Analytics
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -33,4 +34,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public abstract String getActivityTag();
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppEventsLogger.deactivateApp(this);
+    }
 }

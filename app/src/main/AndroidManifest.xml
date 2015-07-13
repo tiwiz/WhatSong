@@ -3,25 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="it.tiwiz.whatsong">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".WhatSongApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <service
             android:name=".WhatSongExtension"
             android:icon="@drawable/whatsong_logo"
             android:label="WhatSong"
-            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
             </intent-filter>
@@ -41,7 +45,7 @@
             android:name=".ShortcutActivity"
             android:icon="@drawable/whatsong_logo"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
 
@@ -52,25 +56,29 @@
             android:name=".WhatSongActivity"
             android:exported="true"
             android:label="@string/settings_title"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <service
-            android:name=".SearchInstalledProvidersService"
-            android:exported="false" >
-        </service>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/app_url_host_settings"
+                    android:scheme="@string/app_url_scheme" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".GoogleNowActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_google_now"
             android:noHistory="true"
-            android:theme="@style/Theme.Transparent" >
+            android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.ASSIST" />
 
@@ -81,6 +89,12 @@
                 android:name="com.android.systemui.action_assist_icon"
                 android:resource="@drawable/google_now_replacement_icon" />
         </activity>
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
 
         <receiver
             android:name=".AppInvitationReceiver"
