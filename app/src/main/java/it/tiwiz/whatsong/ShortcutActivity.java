@@ -1,13 +1,10 @@
 package it.tiwiz.whatsong;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -20,12 +17,7 @@ import it.tiwiz.whatsong.mvp.ShortcutPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter;
 import it.tiwiz.whatsong.mvp.interfaces.WhatSongView;
 import it.tiwiz.whatsong.utils.BaseActivity;
-import it.tiwiz.whatsong.utils.InstalledAppsUtils;
-import it.tiwiz.whatsong.utils.IntentUtils;
-import it.tiwiz.whatsong.utils.PackageData;
 import it.tiwiz.whatsong.views.AnimatedImageView;
-import rx.Observable;
-import rx.Subscriber;
 
 /**
  * This {@link android.app.Activity} implements the {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongView}
@@ -53,8 +45,6 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
     private ImageButton fabCreateShortcut;
 
     private WhatSongPresenter whatSongPresenter;
-    private final BroadcastReceiver updateReceiver = new ServiceUpdatesReceiver();
-    private final IntentFilter updateFilter = IntentUtils.Filters.getSendInstalledProdiverResponseFilter();
 
     /**
      * During the {@code onCreate} phase, the {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter}
@@ -162,46 +152,6 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
     public void onClick(View v) {
         whatSongPresenter.onShortcutRequest(editTextShortcutName.getText().toString(),
                 switchIcon.isChecked());
-    }
-
-
-    /**
-     * This class is the receiver that will take care of listening the response from the
-     * {@link it.tiwiz.whatsong.SearchInstalledProvidersService}.
-     * <p>
-     * The expected behaviour is, as soon as the {@link android.content.Intent} is received,
-     * the {@link android.os.Parcelable} array is extracted and the presenter's method
-     * {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongPresenter#onPackagesRetrieved(it.tiwiz.whatsong.utils.PackageData[])}
-     * is invoked.
-     */
-    private class ServiceUpdatesReceiver extends BroadcastReceiver {
-
-        /**
-         * When the {@link android.content.Intent} is received, the
-         * {@link it.tiwiz.whatsong.utils.PackageData} array is extracted and the Presenter gets
-         * invoked.
-         */
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            PackageData[] response = extractResultsFrom(intent);
-            whatSongPresenter.onPackagesRetrieved(response);
-        }
-
-        /**
-         * This method checks if the {@link android.content.Intent} contains the correct key and,
-         * if the key is effectively inserted, the data is extracted and then returned to the
-         * caller
-         */
-        private PackageData[] extractResultsFrom(Intent intent) {
-            PackageData[] response = new PackageData[0];
-
-            if (intent.hasExtra(SearchInstalledProvidersService.SEARCH_PROVIDERS_KEY)) {
-                response = (PackageData[]) intent.getParcelableArrayExtra(
-                        SearchInstalledProvidersService.SEARCH_PROVIDERS_KEY);
-            }
-
-            return response;
-        }
     }
 
 }

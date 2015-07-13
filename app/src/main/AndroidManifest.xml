@@ -73,10 +73,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".SearchInstalledProvidersService"
-            android:exported="false"></service>
-
         <activity
             android:name=".GoogleNowActivity"
             android:excludeFromRecents="true"
