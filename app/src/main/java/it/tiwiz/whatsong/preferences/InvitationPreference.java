@@ -45,17 +45,6 @@ public class InvitationPreference extends Preference{
         setSummary(R.string.invite_friends_summary);
     }
 
-    private Tracker getTrackerInstance() {
-        return ((WhatSongApp) WhatSongApp.getInstance()).getDefaultTracker();
-    }
-
-    private Map<String, String> getEventData() {
-        return new HitBuilders.EventBuilder()
-                .setCategory("AppInvitation")
-                .setAction("Send")
-                .build();
-    }
-
     private Intent createInvitationIntent() {
         final String invitationTitle = getContext().getString(R.string.invite_invitation_title);
         final String invitationMessage = getContext().getString(R.string.invite_invitation_message);
