@@ -79,5 +79,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-appinvite:7.5.0'
     compile 'com.google.android.gms:play-services-analytics:7.5.0'
     compile 'io.reactivex:rxandroid:0.25.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.1.0'
     provided 'com.intellij:annotations:+@jar'
 }
