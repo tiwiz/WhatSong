@@ -69,6 +69,7 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
     private void initActivity() {
         findViews();
         setViewListeners();
+        whatSongPresenter.onInstalledPackagesRequested(this);
     }
 
     /**
@@ -90,13 +91,6 @@ public class ShortcutActivity extends BaseActivity implements AdapterView.OnItem
         switchIcon.setOnCheckedChangeListener(this);
         spinnerInstalledProviders.setOnItemSelectedListener(this);
         fabCreateShortcut.setOnClickListener(this);
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        whatSongPresenter.onInstalledPackagesRequested(this);
     }
 
     /**
