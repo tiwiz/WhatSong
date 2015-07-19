@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/invite_friends_category"
-        android:icon="@android:drawable/ic_menu_share">
+    <!--<PreferenceCategory android:title="@string/invite_friends_category"-->
+        <!--android:icon="@android:drawable/ic_menu_share">-->
         <!--<it.tiwiz.whatsong.preferences.PlayServicesInvitationPreference /> -->
-        <it.tiwiz.whatsong.preferences.FacebookInvitePreference />
-    </PreferenceCategory>
+        <!--<it.tiwiz.whatsong.preferences.FacebookInvitePreference />-->
+    <!--</PreferenceCategory>-->
     <PreferenceCategory android:title="@string/pref_cat_google_now_provider"
         android:icon="@android:drawable/ic_menu_search">
         <it.tiwiz.whatsong.preferences.InstalledAppsPreferences
