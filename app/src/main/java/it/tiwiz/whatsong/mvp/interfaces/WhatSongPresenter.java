@@ -49,11 +49,7 @@ public interface WhatSongPresenter {
      * This method is called when the packages have been retrieved and will then initialize the
      * {@link it.tiwiz.whatsong.mvp.interfaces.WhatSongModel} with the given input.
      * @param packageData is the list of {@link it.tiwiz.whatsong.utils.PackageData} as returned by
-     *                    the {@link it.tiwiz.whatsong.SearchInstalledProvidersService}.
-     * @see {@link it.tiwiz.whatsong.utils.IntentUtils#getStartInstalledProvidersService(android.content.Context)}
-     * how to start the Service
-     * @see {@link it.tiwiz.whatsong.utils.IntentUtils.Filters#getSendInstalledProdiverResponseFilter()}
-     * how to handle the response
+     *                    the {@link it.tiwiz.whatsong.utils.InstalledAppsUtils#getInstalledApps(Context)}.
      */
     void onPackagesRetrieved(PackageData[] packageData);
 
